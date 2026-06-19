@@ -40,7 +40,7 @@ nav { background: var(--color-background-primary); border-bottom: 0.5px solid va
 .nav-sep { color: var(--color-border-secondary); }
 .nav-title { color: var(--color-text-secondary); }
 header.hero { background: #111110; color: #fff; padding: 44px 0 40px; }
-.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 10px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .1em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 8px; }
 header.hero h1 { margin: 0 0 10px; font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.3px; }
 header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-height: 1.6; }
 .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
@@ -48,33 +48,43 @@ header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-
 .content { padding: 32px 0 64px; }
 .section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px; padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
 .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
-.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 500; }
+.card h3 { margin: 0 0 8px; font-size: 15px; font-weight: 500; }
+.card h4 { margin: 14px 0 4px; font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .06em; }
+.card h4:first-of-type { margin-top: 4px; }
 .card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
+.card p + p { margin-top: 8px; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
 .item-list { list-style: none; margin: 10px 0 0; padding: 0; }
 .item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 8px; align-items: flex-start; }
 .item-list li:last-child { border-bottom: none; }
 .item-list li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--color-text-tertiary); margin-top: 8px; }
-.vendor-row { display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 14px; }
+.vendor-row { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 16px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
 .vendor-row:last-child { border-bottom: none; }
-.vendor-name { font-weight: 500; }
-.vendor-desc { color: var(--color-text-secondary); font-size: 13px; }
-.badge { font-size: 11px; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.vendor-name { font-size: 14px; font-weight: 500; }
+.vendor-desc { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
 .badge.rec { background: #E1F5EE; color: #0F6E56; border: 0.5px solid #9FE1CB; }
-.badge.alt { background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
-.badge.risk { background: #FAEEDA; color: #854F0B; border: 0.5px solid #FAC775; }
+.badge.free { background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
+.badge.def { background: #FAEEDA; color: #854F0B; border: 0.5px solid #FAC775; }
 @media (prefers-color-scheme: dark) {
   .badge.rec { background: #04342C; color: #5DCAA5; border-color: #0F6E56; }
-  .badge.risk { background: #412402; color: #EF9F27; border-color: #633806; }
+  .badge.def { background: #412402; color: #EF9F27; border-color: #633806; }
 }
 .flow-step { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
 .flow-step:last-child { border-bottom: none; }
 .step-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--color-background-tertiary); border: 0.5px solid #c9c4b8; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: #3a3730; }
-.step-body h4 { margin: 0 0 2px; font-size: 14px; font-weight: 500; }
+.step-body h4 { margin: 0 0 2px; font-size: 14px; font-weight: 500; color: var(--color-text-primary); text-transform: none; letter-spacing: normal; }
 .step-body p { margin: 0; font-size: 13px; color: var(--color-text-secondary); }
+.highlight { background: var(--color-text-primary); color: var(--color-background-primary); border-radius: var(--border-radius-md); padding: 18px 22px; margin-bottom: 8px; font-size: 14px; line-height: 1.6; }
+.highlight strong { font-weight: 500; }
+.checklist { list-style: none; margin: 4px 0 0; padding: 0; }
+.checklist li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; align-items: center; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: "✓"; color: var(--color-text-primary); font-weight: 500; font-size: 13px; flex-shrink: 0; }
 .spacer { margin-top: 28px; }
 footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
-@media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } .vendor-row { grid-template-columns: 1fr; gap: 4px; } }
+@media (max-width: 620px) { .two-col, .three-col { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -93,10 +103,10 @@ footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px;
   <div class="wrap">
     <p class="eyebrow">Phase 3 · Week 2–3</p>
     <h1>Data Pipeline &amp; Integration Planning</h1>
-    <p>Vendor evaluation for property data and deed retrieval, OCR and AI extraction workflow definition, and end-to-end pipeline map from address input to structured report output.</p>
+    <p>25 external data sources evaluated, deed extraction workflow defined, and an Inngest-based pipeline architecture designed for parallel ingestion, caching, and graceful degradation.</p>
     <div class="meta-row">
       <span class="chip">3 tasks</span>
-      <span class="chip">1 deliverable</span>
+      <span class="chip">25 data sources</span>
       <span class="chip">Weeks 2–3</span>
     </div>
   </div>
@@ -104,91 +114,189 @@ footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px;
 
 <div class="wrap content">
 
-  <p class="section-label">Data sources &amp; vendor evaluation</p>
+  <!-- 3.1 -->
+  <p class="section-label">3.1 — Vendor selection &amp; data sources</p>
+
   <div class="card">
-    <h3>Assessment roll — address to owner lookup</h3>
+    <p>25 data sources were evaluated across property records, hazard mapping, schools, weather, and local sentiment. The MVP stack prioritizes cost-efficiency and open-source alternatives where possible, deferring vendors that require lengthy approval cycles.</p>
+  </div>
+
+  <div class="card">
+    <h3>Property records</h3>
     <div class="vendor-row">
-      <div class="vendor-name">Westchester County</div>
-      <div class="vendor-desc">Direct county assessment roll data. Free, updated annually. Accessed via county GIS portal.</div>
+      <div>
+        <div class="vendor-name">Realie</div>
+        <div class="vendor-desc">Nationwide owner, parcel, and tax baseline. $50/mo floor. Recommended as the primary property data source for MVP.</div>
+      </div>
       <span class="badge rec">Recommended</span>
     </div>
     <div class="vendor-row">
-      <div class="vendor-name">ATTOM Data</div>
-      <div class="vendor-desc">Aggregated property data API. Reliable, real-time, but adds per-call cost.</div>
-      <span class="badge alt">Fallback</span>
+      <div>
+        <div class="vendor-name">WRO (Westchester Records Online)</div>
+        <div class="vendor-desc">Direct deed retrieval via browser automation. Free, primary path for chain-of-title. Prototype confirms viability.</div>
+      </div>
+      <span class="badge rec">Recommended</span>
     </div>
     <div class="vendor-row">
-      <div class="vendor-name">Regrid</div>
-      <div class="vendor-desc">Parcel data coverage strong in NY. Good for normalized parcel IDs across counties.</div>
-      <span class="badge alt">Fallback</span>
+      <div>
+        <div class="vendor-name">County GIS</div>
+        <div class="vendor-desc">Parcel boundaries, assessment roll data. Free public datasets.</div>
+      </div>
+      <span class="badge free">Free tier</span>
     </div>
   </div>
 
-  <div class="card" style="margin-top:8px">
-    <h3>Deed retrieval — recorded documents</h3>
-    <div class="vendor-row">
-      <div class="vendor-name">WRO (direct)</div>
-      <div class="vendor-desc">Westchester Records Online. Free public portal. Primary path — automated login and document download.</div>
-      <span class="badge risk">Primary / risk</span>
-    </div>
-    <div class="vendor-row">
-      <div class="vendor-name">DataTrace</div>
-      <div class="vendor-desc">Enterprise title data provider. Full Westchester coverage, API-based. High cost per pull.</div>
-      <span class="badge alt">Fallback</span>
-    </div>
-    <div class="vendor-row">
-      <div class="vendor-name">PropLogix</div>
-      <div class="vendor-desc">Title search support vendor. Can retrieve WRO documents on demand. Human-in-the-loop — slower.</div>
-      <span class="badge alt">Manual fallback</span>
-    </div>
-  </div>
-
-  <div class="spacer"></div>
-  <p class="section-label">OCR &amp; extraction workflow</p>
   <div class="card">
+    <h3>Hazard &amp; environmental</h3>
+    <div class="vendor-row">
+      <div>
+        <div class="vendor-name">FEMA flood maps</div>
+        <div class="vendor-desc">Flood zone classification by parcel. Free public API.</div>
+      </div>
+      <span class="badge free">Free tier</span>
+    </div>
+    <div class="vendor-row">
+      <div>
+        <div class="vendor-name">Noise maps</div>
+        <div class="vendor-desc">Transportation noise data from public datasets. Free.</div>
+      </div>
+      <span class="badge free">Free tier</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Schools &amp; amenities</h3>
+    <div class="vendor-row">
+      <div>
+        <div class="vendor-name">School databases</div>
+        <div class="vendor-desc">Public school ratings and district boundaries. Free public data.</div>
+      </div>
+      <span class="badge free">Free tier</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Deferred — approval cycles required</h3>
+    <div class="vendor-row">
+      <div>
+        <div class="vendor-name">Reddit / Nextdoor</div>
+        <div class="vendor-desc">Local sentiment data. API access requires approval and may conflict with ToS. Deferred post-MVP.</div>
+      </div>
+      <span class="badge def">Deferred</span>
+    </div>
+    <div class="vendor-row">
+      <div>
+        <div class="vendor-name">Zillow / MLS</div>
+        <div class="vendor-desc">Listing and price history data. Licensing approval required. Deferred post-MVP.</div>
+      </div>
+      <span class="badge def">Deferred</span>
+    </div>
+  </div>
+
+  <!-- 3.2 -->
+  <div class="spacer"></div>
+  <p class="section-label">3.2 — Document extraction workflow</p>
+
+  <div class="card">
+    <h3>Deed image → structured data — 8-step process</h3>
     <div class="flow-step">
       <div class="step-num">1</div>
-      <div class="step-body"><h4>PDF download</h4><p>Deed image downloaded from WRO and stored in Vercel Blob. Original file preserved for audit trail.</p></div>
+      <div class="step-body"><h4>Acquisition</h4><p>Deed image downloaded from WRO via browser automation and stored in Vercel Blob. Original preserved for audit trail.</p></div>
     </div>
     <div class="flow-step">
       <div class="step-num">2</div>
-      <div class="step-body"><h4>OCR (Google Document AI)</h4><p>Preferred OCR vendor. Handles variable scan quality, handwriting, and stamped text. Returns word-level confidence scores — used to flag low-confidence extractions for review.</p></div>
+      <div class="step-body"><h4>Preprocessing</h4><p>Image normalization — deskew, contrast enhancement, resolution upscaling for low-quality historical scans.</p></div>
     </div>
     <div class="flow-step">
       <div class="step-num">3</div>
-      <div class="step-body"><h4>AI deed parsing (Claude)</h4><p>Structured extraction via tool-use: grantor, grantee, recorded date, consideration, legal description, encumbrances, prior deed book/page reference. Output is validated against a JSON schema before acceptance.</p></div>
+      <div class="step-body"><h4>OCR</h4><p>Text recognition run on preprocessed image. Word-level confidence scores captured for downstream quality gating.</p></div>
     </div>
     <div class="flow-step">
       <div class="step-num">4</div>
-      <div class="step-body"><h4>Prior-deed chaining</h4><p>The extracted prior-deed reference (book and page number) feeds back into the retrieval step. Loop continues until no prior reference is found or the records pre-date available digital archives (typically pre-1960).</p></div>
+      <div class="step-body"><h4>Schema-constrained LLM extraction</h4><p>Claude Opus 4.8 vision handles complex legal document parsing directly — no county-specific model training required. Extracts grantor, grantee, date, consideration, legal description, encumbrances, and prior-deed reference. Output validated against a shared Zod schema.</p></div>
     </div>
     <div class="flow-step">
       <div class="step-num">5</div>
-      <div class="step-body"><h4>Report assembly</h4><p>All parsed deed records written to Postgres. Report generation job marks complete. User receives email with report link.</p></div>
+      <div class="step-body"><h4>Normalization</h4><p>Names, dates, and addresses standardized to canonical formats for consistent chain-of-title linking.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">6</div>
+      <div class="step-body"><h4>Confidence scoring</h4><p>Composite score from OCR confidence + LLM extraction certainty. Fields below threshold flagged for human review.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">7</div>
+      <div class="step-body"><h4>Persistence</h4><p>Structured extraction written to Postgres pipeline tables. Raw deed PDF key retained in Blob.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">8</div>
+      <div class="step-body"><h4>Human review queue</h4><p>Low-confidence extractions surfaced to a review queue. Reviewer can correct fields; corrections feed back to improve future extractions.</p></div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>Model choice:</strong> Claude Opus 4.8 vision handles complex legal documents directly — no county-specific model training, no fine-tuning pipeline to maintain.
+  </div>
+
+  <!-- 3.3 -->
+  <div class="spacer"></div>
+  <p class="section-label">3.3 — Pipeline architecture</p>
+
+  <div class="card">
+    <h3>Inngest-based durable workflow</h3>
+    <p>All data ingestion runs as durable Inngest functions. Sources are fetched in parallel where possible, with per-vendor concurrency limits to avoid rate-limit breaches. Each step has independent retry logic — a vendor failure doesn't block other data sources from completing.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Connector pattern</h3>
+      <ul class="item-list">
+        <li>Uniform adapter interface for all 25 sources</li>
+        <li>Each connector: fetch → validate (Zod) → cache → return</li>
+        <li>New sources added without touching pipeline core</li>
+        <li>Graceful degradation when vendor unavailable — report marks that section as incomplete rather than failing entirely</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Caching strategy</h3>
+      <ul class="item-list">
+        <li>Results cached by property ID in Postgres (JSONB)</li>
+        <li>TTL-based freshness per source type — deed data longer, market data shorter</li>
+        <li>Cache hit reused across multiple purchases for same property</li>
+        <li>Raw vendor payloads stored separately from normalized output</li>
+      </ul>
     </div>
   </div>
 
   <div class="spacer"></div>
-  <p class="section-label">Pipeline monitoring</p>
+  <p class="section-label">Governance &amp; monitoring</p>
+
   <div class="two-col">
     <div class="card">
-      <h3>Job state machine</h3>
-      <ul class="item-list">
-        <li>pending → queued → retrieving → ocr → parsing → complete</li>
-        <li>Any step can transition to: failed, needs_review</li>
-        <li>Status exposed to frontend via polling endpoint</li>
-      </ul>
+      <h3>Validation</h3>
+      <p>All pipeline outputs validated against shared Zod schemas — same schemas used at API boundaries and forms. Schema mismatches surface as structured errors, not silent failures.</p>
     </div>
     <div class="card">
-      <h3>Failure modes tracked</h3>
+      <h3>Metrics tracked</h3>
       <ul class="item-list">
-        <li>WRO login failure / CAPTCHA block</li>
-        <li>Document not found in archive</li>
-        <li>OCR confidence below threshold (70%)</li>
-        <li>AI extraction schema validation failure</li>
-        <li>Prior-deed loop exceeded max depth (20)</li>
+        <li>Cost per source per report</li>
+        <li>Vendor latency and error rates</li>
+        <li>Extraction accuracy (confidence score distribution)</li>
+        <li>Review queue depth</li>
       </ul>
     </div>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">Deliverables checklist</p>
+  <div class="card">
+    <ul class="checklist">
+      <li>25 data sources evaluated across 5 categories</li>
+      <li>MVP vendor stack defined with cost model</li>
+      <li>8-step deed extraction workflow documented</li>
+      <li>Inngest pipeline architecture with connector pattern</li>
+      <li>Caching, TTL, and graceful degradation strategy</li>
+      <li>Governance: Zod validation, confidence scoring, human review queue</li>
+    </ul>
   </div>
 
 </div>
