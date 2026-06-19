@@ -16,8 +16,8 @@
   --color-border-tertiary: rgba(0,0,0,.1);
   --color-border-secondary: rgba(0,0,0,.18);
   --border-radius-md: 8px;
-  --border-radius-lg: 12px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -49,44 +49,45 @@ header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-
 .content { padding: 32px 0 64px; }
 .section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px; padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
 .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
-.card h3 { margin: 0 0 8px; font-size: 15px; font-weight: 500; }
-.card h4 { margin: 16px 0 4px; font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .06em; }
-.card h4:first-of-type { margin-top: 12px; }
+.card h3 { margin: 0 0 10px; font-size: 15px; font-weight: 500; }
+.card h4 { margin: 16px 0 6px; font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .06em; }
 .card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
 .card p + p { margin-top: 8px; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
-.item-list { list-style: none; margin: 10px 0 0; padding: 0; }
-.item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 8px; align-items: flex-start; }
+code { font-family: var(--font-mono); font-size: 12.5px; background: var(--color-background-tertiary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; padding: 1px 5px; color: var(--color-text-primary); }
+em { font-style: italic; }
+.item-list { list-style: none; margin: 0; padding: 0; }
+.item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.6; }
 .item-list li:last-child { border-bottom: none; }
-.item-list li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--color-text-tertiary); margin-top: 8px; }
-.flow-step { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.flow-step:last-child { border-bottom: none; }
-.step-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--color-background-tertiary); border: 0.5px solid #c9c4b8; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: #3a3730; }
-.step-body h4 { margin: 0 0 2px; font-size: 14px; font-weight: 500; color: var(--color-text-primary); text-transform: none; letter-spacing: normal; }
-.step-body p { margin: 0; font-size: 13px; color: var(--color-text-secondary); }
-.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; overflow-x: auto; }
-.compare-table th { text-align: left; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: var(--color-text-tertiary); padding: 0 16px 8px 0; border-bottom: 0.5px solid var(--color-border-secondary); }
-.compare-table td { padding: 10px 16px 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); vertical-align: top; }
-.compare-table tr:last-child td { border-bottom: none; }
-.compare-table td:first-child { color: var(--color-text-primary); font-weight: 500; white-space: nowrap; }
-.badge { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.item-list li strong { color: var(--color-text-primary); font-weight: 500; }
+.num-list { list-style: none; margin: 0; padding: 0; }
+.num-list li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; line-height: 1.6; }
+.num-list li:last-child { border-bottom: none; }
+.num-list li::before { content: attr(data-n); flex-shrink: 0; font-weight: 500; color: var(--color-text-tertiary); min-width: 18px; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: var(--color-text-tertiary); padding: 0 14px 8px 0; border-bottom: 0.5px solid var(--color-border-secondary); white-space: nowrap; }
+td { padding: 10px 14px 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td:first-child { color: var(--color-text-primary); font-weight: 500; white-space: nowrap; }
+.badge { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
 .badge.rec { background: #E1F5EE; color: #0F6E56; border: 0.5px solid #9FE1CB; }
-.badge.alt { background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
+.badge.ff { background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
 .badge.def { background: #FAEEDA; color: #854F0B; border: 0.5px solid #FAC775; }
 @media (prefers-color-scheme: dark) {
   .badge.rec { background: #04342C; color: #5DCAA5; border-color: #0F6E56; }
   .badge.def { background: #412402; color: #EF9F27; border-color: #633806; }
 }
-.highlight { background: var(--color-text-primary); color: var(--color-background-primary); border-radius: var(--border-radius-md); padding: 18px 22px; margin-bottom: 8px; font-size: 14px; line-height: 1.6; }
-.highlight code { opacity: .75; font-family: ui-monospace, monospace; font-size: 13px; }
+.rec-item { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 14px 18px; margin-bottom: 8px; display: flex; gap: 12px; align-items: flex-start; background: var(--color-background-primary); }
+.rec-item .badge { flex-shrink: 0; margin-top: 2px; }
+.rec-item p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+.rec-item p strong { color: var(--color-text-primary); font-weight: 500; }
 .checklist { list-style: none; margin: 4px 0 0; padding: 0; }
 .checklist li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; align-items: center; }
 .checklist li:last-child { border-bottom: none; }
 .checklist li::before { content: "✓"; color: var(--color-text-primary); font-weight: 500; font-size: 13px; flex-shrink: 0; }
 .spacer { margin-top: 28px; }
 footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
-@media (max-width: 620px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+footer strong { color: var(--color-text-secondary); font-weight: 500; }
 </style>
 </head>
 <body>
@@ -105,7 +106,7 @@ footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px;
   <div class="wrap">
     <p class="eyebrow">Phase 2 · Week 1–2</p>
     <h1>Technical Architecture Definition</h1>
-    <p>Frontend and backend stack recommendation, data model, report generation flow, queue strategy, infrastructure, and observability plan for the Knowsy MVP.</p>
+    <p>The recommended stack, data model, end-to-end report flow, queue strategy, infrastructure, observability, and the decision framework behind them.</p>
     <div class="meta-row">
       <span class="chip">3 tasks</span>
       <span class="chip">4 deliverables</span>
@@ -116,170 +117,200 @@ footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px;
 
 <div class="wrap content">
 
-  <p class="section-label">2.1 — Frontend &amp; backend architecture</p>
-
-  <div class="three-col">
-    <div class="card">
-      <h3>Runtime</h3>
-      <p>Bun — one fast toolchain for install, run, bundle &amp; test; native TypeScript.</p>
-    </div>
-    <div class="card">
-      <h3>Framework</h3>
-      <p>Next.js 16 (App Router) — React Server Components by default, streaming, mature ecosystem.</p>
-    </div>
-    <div class="card">
-      <h3>API layer</h3>
-      <p>Co-located Route Handlers + Server Actions — one service, one deploy for MVP; carved out later if needed.</p>
-    </div>
-  </div>
+  <!-- 2.1 -->
+  <p class="section-label">2.1 — Recommend frontend &amp; backend architecture <span style="font-weight:400;text-transform:none;letter-spacing:0">SoW §2</span></p>
 
   <div class="card">
-    <h3>Rendering strategy</h3>
+    <h3>Recommended direction — MVP</h3>
     <ul class="item-list">
-      <li>Static rendering for marketing pages</li>
-      <li>Server-rendered pages for address search</li>
-      <li>Streamed content for report generation states</li>
-      <li>Client interactivity only where necessary</li>
+      <li><strong>Runtime:</strong> Bun — one fast toolchain for install, run, bundle &amp; test; native TypeScript.</li>
+      <li><strong>Framework:</strong> Next.js 16 (App Router) — React Server Components by default, streaming, and a mature ecosystem.</li>
+      <li><strong>Rendering:</strong> static for marketing pages, server-rendered for address search, streamed for report generation, client interactivity only where needed.</li>
+      <li><strong>API layer:</strong> co-located in the same Next.js app (Route Handlers + Server Actions) — <em>one service, one deploy</em> for the MVP; carved out later if a flow needs to scale independently.</li>
+      <li><strong>Validation:</strong> Zod — schemas shared across forms, API boundaries, and external/OCR data ingestion (single source of truth for types).</li>
+      <li><strong>Data layer:</strong> Drizzle ORM over Postgres — typed SQL, lightweight checked-in migrations.</li>
+      <li><strong>Auth &amp; payments:</strong> hosted providers integrated in-app (provider selection &amp; flow assumptions captured in 1.3 log).</li>
     </ul>
   </div>
 
-  <div class="two-col">
-    <div class="card">
-      <h3>Validation</h3>
-      <p>Zod — schemas shared across forms, API boundaries, and external/OCR data ingestion. Single source of truth for types.</p>
-    </div>
-    <div class="card">
-      <h3>Data &amp; ORM</h3>
-      <p>Drizzle ORM over Postgres — typed SQL, lightweight checked-in migrations.</p>
-    </div>
-  </div>
-
+  <!-- 2.2 -->
   <div class="spacer"></div>
-  <p class="section-label">2.2 — Data storage &amp; report generation</p>
+  <p class="section-label">2.2 — Design data storage &amp; report generation flow <span style="font-weight:400;text-transform:none;letter-spacing:0">SoW §2</span></p>
 
   <div class="card">
-    <h3>Database schema — Postgres / Neon</h3>
-    <h4>Identity layer</h4>
-    <p>User, session, and account records managed by Better Auth.</p>
-    <h4>Domain entities</h4>
-    <p>Property records (normalized addresses and parcel IDs), reports (status and ownership), orders (Stripe references).</p>
-    <h4>Pipeline tables</h4>
-    <p>Documents (source deeds stored as Vercel Blob keys), extractions (OCR output with confidence scores), source fetches (vendor responses cached as JSONB with timestamps), review items (flagged low-confidence extractions awaiting human approval).</p>
-    <h4>Storage architecture</h4>
-    <p>Structured data in Postgres; raw vendor payloads in JSONB; binary deed files in Vercel Blob (signed URLs, keys only in DB). Fetches keyed by property and reused across purchases within TTL windows.</p>
-    <h4>PII handling</h4>
-    <p>Deeds carry owner names — encryption at rest, row-level access scoped to owning user, retention policy on source files.</p>
+    <h3>Data model — Postgres (Neon) via Drizzle</h3>
+    <ul class="item-list">
+      <li><strong>Identity:</strong> <code>user</code>, <code>session</code>, <code>account</code> — owned by Better Auth, in our schema.</li>
+      <li><strong>Domain:</strong> <code>property</code> (normalized address + parcel id), <code>report</code> (status, owner, property ref, version), <code>order</code> (Stripe ref, amount, status).</li>
+      <li><strong>Pipeline:</strong> <code>document</code> (source deed → Vercel Blob key, type, checksum), <code>extraction</code> (OCR output + confidence, linked to document), <code>source_fetch</code> (vendor response cached as JSONB, with provenance, <code>fetched_at</code> + TTL), <code>review_item</code> (low-confidence flags awaiting human sign-off).</li>
+      <li><strong>Storage split:</strong> structured data in Postgres; raw vendor payloads in JSONB; binary deed files in <strong>Vercel Blob</strong> (signed URLs, keys only in DB).</li>
+      <li><strong>Cache &amp; reuse:</strong> fetches/extractions keyed by property are reused across purchases while within TTL; stale → refetch. Reports pin the <code>source_fetch</code> versions they were built from (point-in-time provenance).</li>
+      <li><strong>PII:</strong> deeds carry owner names — encryption at rest, row-level access scoped to owning user, retention policy on source files.</li>
+    </ul>
   </div>
 
   <div class="card">
-    <h3>Report generation flow</h3>
-    <div class="flow-step">
-      <div class="step-num">1</div>
-      <div class="step-body"><h4>Address normalization</h4><p>Input validated and matched against assessment roll to resolve owner of record and parcel ID.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">2</div>
-      <div class="step-body"><h4>Payment processing</h4><p>Stripe checkout — idempotency keys prevent double-charges on retry.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">3</div>
-      <div class="step-body"><h4>Job enqueuing</h4><p>Payment webhook triggers the Inngest workflow. API returns immediately.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">4</div>
-      <div class="step-body"><h4>Parallel data fetch &amp; OCR</h4><p>Deed retrieved from WRO (or fallback vendor), stored in Blob, run through OCR and AI parsing in parallel steps.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">5</div>
-      <div class="step-body"><h4>Status polling</h4><p>Frontend polls a status endpoint every 5 seconds, displaying live step progress to the user.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">6</div>
-      <div class="step-body"><h4>User notification</h4><p>Report marked complete in Postgres, email sent with report link.</p></div>
+    <h3>Report generation flow — end to end</h3>
+    <ul class="num-list">
+      <li data-n="1 ·">Address search → resolve &amp; normalize → <code>property</code> record.</li>
+      <li data-n="2 ·">Checkout (Stripe) → <code>order</code> paid → create <code>report</code> (status: <em>pending</em>).</li>
+      <li data-n="3 ·">Enqueue durable workflow keyed by <code>reportId</code> (idempotent).</li>
+      <li data-n="4 ·">Steps: fetch data sources (parallel; reuse cached within TTL) → OCR deeds (upload → extract) → normalize + confidence-score → assemble → persist. Low-confidence items → <code>review_item</code>, report ships <em>partial</em>.</li>
+      <li data-n="5 ·">UI polls / streams status: <em>loading → partial → success</em> (or <em>error</em>), each step's state in Postgres.</li>
+      <li data-n="6 ·">On completion: report available; notify user.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Queue / job strategy — Inngest</h3>
+    <ul class="item-list">
+      <li>Durable multi-step functions with per-step retries &amp; observability.</li>
+      <li>Idempotency keyed by <code>reportId</code>; per-vendor concurrency limits to respect rate caps.</li>
+      <li>Low-confidence extractions routed to a manual-review state rather than failing the report.</li>
+      <li>Step state mirrored to Postgres so the UI never depends on the queue being reachable.</li>
+    </ul>
+  </div>
+
+  <!-- 2.3 -->
+  <div class="spacer"></div>
+  <p class="section-label">2.3 — Plan infrastructure, scalability &amp; observability <span style="font-weight:400;text-transform:none;letter-spacing:0">SoW §2</span></p>
+
+  <div class="card">
+    <h3>Stateless service — design principles</h3>
+    <ul class="item-list">
+      <li><strong>No state in the request path:</strong> the Next.js web/API tier holds nothing durable in memory — no in-process queues, sticky sessions, or local caches. Any instance can serve any request, so Vercel can scale instances horizontally and recycle them freely.</li>
+      <li><strong>All durable state is externalized:</strong> domain &amp; step state → Postgres (Neon); binary deeds → Vercel Blob; orchestration &amp; queue state → the workflow engine. The compute tier is disposable.</li>
+      <li><strong>Sessions are token-backed:</strong> auth via signed cookies over Postgres-stored sessions — no server affinity, no sticky load balancing.</li>
+      <li><strong>Enqueue-and-return:</strong> the API validates, creates the <code>order</code>/<code>report</code>, kicks off a durable run keyed by <code>reportId</code>, and returns immediately. All long work happens in durable steps, never inside an HTTP request.</li>
+      <li><strong>Idempotent by construction:</strong> runs keyed by <code>reportId</code>; every step is safe to retry/replay (upserts, checksums, dedup on <code>source_fetch</code>) so autoscaling, retries, and cold starts never double-charge or double-write.</li>
+      <li><strong>Connections don't fan out:</strong> Neon <strong>serverless driver</strong> (HTTP) so scaling to many instances never exhausts Postgres connections.</li>
+      <li><strong>Backpressure lives in the engine, not the user:</strong> per-vendor concurrency/rate limits are enforced by the orchestrator (below), keeping us under external caps regardless of inbound traffic spikes.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Durable workers — orchestrator options</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Inngest</th>
+            <th>Temporal</th>
+            <th>Vercel Workflows</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Execution model</td>
+            <td>Event-driven durable step functions; the engine calls your HTTP endpoint per step.</td>
+            <td>Workflow-as-code: deterministic workflows + activities, pulled from task queues by workers.</td>
+            <td><code>"use workflow"</code> orchestration + <code>"use step"</code> units, replayed on Vercel.</td>
+          </tr>
+          <tr>
+            <td>Where workers run</td>
+            <td>Your <strong>stateless</strong> Vercel functions — no always-on process.</td>
+            <td>Persistent worker processes <strong>you host and keep running</strong>.</td>
+            <td>Same Vercel deployment (Fluid compute) — no separate process.</td>
+          </tr>
+          <tr>
+            <td>Extra infra / ops</td>
+            <td>Managed cloud — nothing to run.</td>
+            <td>Temporal Cloud, or self-host a cluster (heaviest).</td>
+            <td>None — native to the platform we already use.</td>
+          </tr>
+          <tr>
+            <td>Stateless-serverless fit</td>
+            <td>Strong</td>
+            <td>Weak — needs long-running workers</td>
+            <td>Strongest — one deploy</td>
+          </tr>
+          <tr>
+            <td>Vendor rate-limit control</td>
+            <td>First-class: per-key concurrency, throttle, rate-limit, debounce, fan-out.</td>
+            <td>Possible but hand-rolled via task-queue / worker tuning.</td>
+            <td>Limited today — implement via your own queue / semaphore.</td>
+          </tr>
+          <tr>
+            <td>Observability</td>
+            <td>Hosted dashboard: per-step traces, retries, replays.</td>
+            <td>Rich Web UI (self-host unless on Cloud).</td>
+            <td>Vercel Observability + <code>npx workflow web</code>.</td>
+          </tr>
+          <tr>
+            <td>Maturity / ecosystem</td>
+            <td>Production-proven, mature.</td>
+            <td>Battle-tested at very large scale.</td>
+            <td>Newest — capable but still-evolving DevKit.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <div class="card">
-    <h3>Queue strategy — Inngest</h3>
-    <p>Durable multi-step functions with per-step retries and observability. Idempotency keyed by report ID. Built-in vendor concurrency controls prevent rate-limit breaches.</p>
+    <h3>Recommendation</h3>
+    <div class="rec-item">
+      <span class="badge rec">Pick · MVP</span>
+      <p><strong>Inngest.</strong> The pipeline's real ceiling is external <em>vendor rate limits + OCR throughput</em> (established in 2.1–2.2), and Inngest solves exactly that with first-class per-key concurrency, throttling, and rate-limiting — zero custom code — while the compute stays fully stateless on Vercel. Lowest-risk, lowest-ops path to a scalable service.</p>
+    </div>
+    <div class="rec-item">
+      <span class="badge ff">Fast-follow</span>
+      <p><strong>Vercel Workflows.</strong> Strongest "one platform, one deploy" story and removes a second dashboard/billing relationship. Revisit once we want to collapse vendors — main gap today is turnkey per-vendor flow control, which we'd otherwise hand-roll. Portable design (below) keeps this swap cheap.</p>
+    </div>
+    <div class="rec-item">
+      <span class="badge def">Defer</span>
+      <p><strong>Temporal.</strong> Best-in-class for very complex, long-running orchestration at scale — but it requires always-on worker processes and a cluster/Temporal Cloud, which breaks the stateless-serverless model and adds the most ops. Reserve as an "extract later" target if one flow's complexity outgrows serverless.</p>
+    </div>
   </div>
-
-  <div class="spacer"></div>
-  <p class="section-label">2.3 — Infrastructure, scalability &amp; observability</p>
 
   <div class="card">
-    <h3>Stateless service principles</h3>
-    <p>No state in the request path — the web tier holds no durable memory, allowing Vercel to scale horizontally. All durable state is externalized: domain &amp; step state → Postgres (Neon); binary deeds → Vercel Blob; orchestration &amp; queue state → Inngest.</p>
-    <p>Authentication uses token-backed sessions via signed cookies over Postgres — no server affinity required.</p>
+    <h3>Keeping the orchestrator swappable</h3>
+    <ul class="item-list">
+      <li><strong>Thin port, not a hard dependency:</strong> the app calls an internal <code>jobs.enqueueReport(reportId)</code> / step interface; the Inngest binding lives behind it. Swapping to Vercel Workflows or Temporal is an adapter change, not a rewrite.</li>
+      <li><strong>Engine owns orchestration, Postgres owns truth:</strong> step state is mirrored to Postgres (2.2) so the UI and recovery never depend on which engine is wired in.</li>
+      <li><strong>Idempotent steps + <code>reportId</code> keying</strong> are engine-agnostic — they work the same under all three.</li>
+    </ul>
   </div>
 
-  <div class="two-col">
-    <div class="card">
-      <h3>Scalability patterns</h3>
-      <ul class="item-list">
-        <li>Enqueue-and-return: APIs validate and immediately return while durable steps handle long-running work</li>
-        <li>Neon serverless driver (HTTP) prevents connection exhaustion at scale</li>
-        <li>Real ceiling is external vendors: their rate limits + OCR cost/throughput, not our infra</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Observability stack</h3>
-      <ul class="item-list">
-        <li>Sentry — errors across frontend and backend</li>
-        <li>Inngest — orchestrator visibility and step-level tracing</li>
-        <li>Vercel — infrastructure metrics</li>
-        <li>KPIs: reports generated, success/error rates, cost per report, review-queue depth, vendor latency</li>
-      </ul>
-    </div>
+  <div class="card">
+    <h3>Infrastructure &amp; scalability</h3>
+    <ul class="item-list">
+      <li><strong>Compute:</strong> Vercel autoscaling functions for web + API; the orchestrator (Inngest) absorbs pipeline load and enforces per-vendor concurrency limits.</li>
+      <li><strong>Database:</strong> Neon autoscaling + scale-to-zero; <strong>serverless driver</strong> (HTTP/WS) to avoid connection exhaustion under serverless fan-out.</li>
+      <li><strong>Real ceiling = external vendors:</strong> their rate limits + OCR cost/throughput, not our infra. Cache-and-reuse (2.2) + engine-side throttling are the levers that keep us under those caps.</li>
+      <li><strong>Files:</strong> Vercel Blob behind CDN; serve derived/thumbnail assets, not raw scans, to control egress.</li>
+      <li><strong>Environments:</strong> preview-per-PR (Vercel preview + Neon branch) → Production; promote on merge.</li>
+    </ul>
   </div>
 
-  <div class="spacer"></div>
-  <p class="section-label">Orchestrator evaluation</p>
-
-  <div class="card" style="overflow-x:auto">
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Option</th>
-          <th>Fit</th>
-          <th>Notes</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Inngest</td>
-          <td>First-class per-key concurrency, throttling, rate-limiting — zero custom code</td>
-          <td>Durable, serverless-native, strong observability</td>
-          <td><span class="badge rec">Pick · MVP</span></td>
-        </tr>
-        <tr>
-          <td>Vercel Workflows</td>
-          <td>Platform consolidation upside</td>
-          <td>Recommended for future fast-follow once mature</td>
-          <td><span class="badge alt">Fast-follow</span></td>
-        </tr>
-        <tr>
-          <td>Temporal</td>
-          <td>Strong guarantees but always-on workers conflict with serverless model</td>
-          <td>Deferred — adds infra overhead not justified at MVP scale</td>
-          <td><span class="badge def">Deferred</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="card">
+    <h3>Observability &amp; monitoring</h3>
+    <ul class="item-list">
+      <li><strong>Errors:</strong> Sentry across frontend, API, and workflow steps.</li>
+      <li><strong>Pipeline:</strong> the orchestrator dashboard (Inngest) as first-class step tracing / retries; step state also mirrored to Postgres so the UI never depends on the engine being reachable.</li>
+      <li><strong>Logs &amp; metrics:</strong> Vercel + log drain; Neon DB metrics &amp; slow queries; uptime/synthetics on the critical path.</li>
+      <li><strong>Business KPIs:</strong> reports generated, success/partial/error rates, <em>cost per report</em>, review-queue depth, vendor latency &amp; error rates.</li>
+    </ul>
   </div>
 
-  <div class="highlight">
-    <strong>Design principle:</strong> The orchestrator is wired behind a thin internal interface — <code>jobs.enqueueReport(reportId)</code> — so the adapter can be swapped without rewrites if we migrate from Inngest later.
+  <div class="card">
+    <h3>Key trade-offs (decision framework)</h3>
+    <ul class="item-list">
+      <li><strong>Stateless serverless over persistent workers:</strong> autoscaling &amp; zero idle cost win for an MVP — which is precisely why Temporal's always-on worker model is deferred.</li>
+      <li><strong>Modular monolith now, extract later:</strong> simplicity over premature decoupling; split trigger = a flow needing independent scaling/runtime (also the Temporal trigger).</li>
+      <li><strong>Serverless limits:</strong> cold starts, connection &amp; execution-time caps — mitigated by the durable engine (long work) + Neon serverless driver.</li>
+      <li><strong>Managed vendors (Vercel/Neon/Inngest):</strong> speed now vs lock-in later — hedged by portable choices (standard Postgres + Drizzle, S3-compatible storage, the swappable job port above).</li>
+      <li><strong>Cache TTL:</strong> cost &amp; latency vs data freshness/legal exposure — tuned per source in Phase 3.</li>
+    </ul>
   </div>
 
   <div class="spacer"></div>
-  <p class="section-label">Deliverables checklist</p>
-
+  <p class="section-label">Deliverables</p>
   <div class="card">
     <ul class="checklist">
       <li>High-level system architecture document</li>
-      <li>Stateless service &amp; worker-orchestration recommendation with evaluated alternatives</li>
+      <li>Stateless service &amp; worker-orchestration recommendation (Inngest, with Vercel Workflows / Temporal evaluated)</li>
       <li>Technical decision framework</li>
       <li>Infrastructure recommendations</li>
     </ul>

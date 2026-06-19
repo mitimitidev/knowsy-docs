@@ -17,6 +17,7 @@
   --color-border-secondary: rgba(0,0,0,.18);
   --border-radius-md: 8px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -48,22 +49,26 @@ header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-
 .content { padding: 32px 0 64px; }
 .section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px; padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
 .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
-.card h3 { margin: 0 0 8px; font-size: 15px; font-weight: 500; }
-.card h4 { margin: 14px 0 4px; font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .06em; }
-.card h4:first-of-type { margin-top: 4px; }
+.card h3 { margin: 0 0 10px; font-size: 15px; font-weight: 500; }
+.card h4 { margin: 20px 0 8px; font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+.card h4.sub { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .07em; margin: 16px 0 6px; }
 .card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
 .card p + p { margin-top: 8px; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
-.item-list { list-style: none; margin: 10px 0 0; padding: 0; }
-.item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 8px; align-items: flex-start; }
+.note { font-size: 13px; color: var(--color-text-tertiary); font-style: italic; margin-top: 10px !important; }
+code { font-family: var(--font-mono); font-size: 12.5px; background: var(--color-background-tertiary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; padding: 1px 5px; color: var(--color-text-primary); }
+em { font-style: italic; }
+.item-list { list-style: none; margin: 0; padding: 0; }
+.item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.6; }
 .item-list li:last-child { border-bottom: none; }
-.item-list li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--color-text-tertiary); margin-top: 8px; }
-.vendor-row { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 16px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.vendor-row:last-child { border-bottom: none; }
-.vendor-name { font-size: 14px; font-weight: 500; }
-.vendor-desc { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
-.badge { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.item-list li strong { color: var(--color-text-primary); font-weight: 500; }
+.table-wrap { overflow-x: auto; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: var(--color-text-tertiary); padding: 0 14px 8px 0; border-bottom: 0.5px solid var(--color-border-secondary); white-space: nowrap; }
+td { padding: 9px 14px 9px 0; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); vertical-align: top; font-size: 13px; line-height: 1.5; }
+tr:last-child td { border-bottom: none; }
+td:first-child { color: var(--color-text-primary); font-weight: 500; }
+td strong { color: var(--color-text-primary); font-weight: 500; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
 .badge.rec { background: #E1F5EE; color: #0F6E56; border: 0.5px solid #9FE1CB; }
 .badge.free { background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
 .badge.def { background: #FAEEDA; color: #854F0B; border: 0.5px solid #FAC775; }
@@ -71,20 +76,29 @@ header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-
   .badge.rec { background: #04342C; color: #5DCAA5; border-color: #0F6E56; }
   .badge.def { background: #412402; color: #EF9F27; border-color: #633806; }
 }
-.flow-step { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.flow-step:last-child { border-bottom: none; }
-.step-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--color-background-tertiary); border: 0.5px solid #c9c4b8; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: #3a3730; }
-.step-body h4 { margin: 0 0 2px; font-size: 14px; font-weight: 500; color: var(--color-text-primary); text-transform: none; letter-spacing: normal; }
-.step-body p { margin: 0; font-size: 13px; color: var(--color-text-secondary); }
-.highlight { background: var(--color-text-primary); color: var(--color-background-primary); border-radius: var(--border-radius-md); padding: 18px 22px; margin-bottom: 8px; font-size: 14px; line-height: 1.6; }
-.highlight strong { font-weight: 500; }
+.tier { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 14px 18px; margin-bottom: 8px; background: var(--color-background-primary); }
+.tier-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.tier-head .badge { flex-shrink: 0; }
+.tier-head strong { font-size: 14px; font-weight: 500; }
+.tier p { margin: 0; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.pipeline-stage { border-left: 2px solid var(--color-border-tertiary); padding: 0 0 20px 18px; margin-left: 8px; position: relative; }
+.pipeline-stage:last-child { padding-bottom: 0; border-left-color: transparent; }
+.pipeline-stage::before { content: ""; position: absolute; left: -5px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--color-background-tertiary); border: 1.5px solid #c9c4b8; }
+.stage-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.stage-num { font-size: 11px; font-weight: 500; background: var(--color-background-tertiary); border: 0.5px solid #c9c4b8; color: #3a3730; border-radius: 999px; padding: 1px 8px; }
+.stage-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.stage-body strong { color: var(--color-text-primary); font-weight: 500; }
+.stage-sources { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.source-chip { font-size: 11px; padding: 3px 10px; border-radius: var(--border-radius-md); background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); }
+.arrow { text-align: center; color: var(--color-text-tertiary); font-size: 16px; padding: 4px 0 12px 26px; display: block; }
 .checklist { list-style: none; margin: 4px 0 0; padding: 0; }
-.checklist li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; align-items: center; }
+.checklist li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; align-items: center; line-height: 1.5; }
 .checklist li:last-child { border-bottom: none; }
 .checklist li::before { content: "✓"; color: var(--color-text-primary); font-weight: 500; font-size: 13px; flex-shrink: 0; }
 .spacer { margin-top: 28px; }
 footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
-@media (max-width: 620px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+footer strong { color: var(--color-text-secondary); font-weight: 500; }
+@media (max-width: 620px) { .stage-sources { flex-direction: column; } }
 </style>
 </head>
 <body>
@@ -103,7 +117,7 @@ footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px;
   <div class="wrap">
     <p class="eyebrow">Phase 3 · Week 2–3</p>
     <h1>Data Pipeline &amp; Integration Planning</h1>
-    <p>25 external data sources evaluated, deed extraction workflow defined, and an Inngest-based pipeline architecture designed for parallel ingestion, caching, and graceful degradation.</p>
+    <p>Vendor inventory, the end-to-end pipeline map, and documentation of each data flow and its transformations.</p>
     <div class="meta-row">
       <span class="chip">3 tasks</span>
       <span class="chip">25 data sources</span>
@@ -115,187 +129,298 @@ footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px;
 <div class="wrap content">
 
   <!-- 3.1 -->
-  <p class="section-label">3.1 — Vendor selection &amp; data sources</p>
+  <p class="section-label">3.1 — Identify data sources &amp; evaluate vendors <span style="font-weight:400;text-transform:none;letter-spacing:0">SoW §3</span></p>
 
   <div class="card">
-    <p>25 data sources were evaluated across property records, hazard mapping, schools, weather, and local sentiment. The MVP stack prioritizes cost-efficiency and open-source alternatives where possible, deferring vendors that require lengthy approval cycles.</p>
+    <p>Every external data source named in the wireframe annotation notes was researched (live web search, June 2026) for API availability, type, auth, free tier, pricing, and caveats — <strong>25 sources</strong> in total. Full detail with endpoints and source links lives in the standalone <em>Data Source API &amp; Pricing Report</em> (<code>report/data-sources-api-report.html</code>); the inventory and stack below are the Discovery summary.</p>
+    <p>Government / public-domain data is free. Commercial figures are point-in-time and several derive from third-party comparison sites — verify on each vendor's official pricing page before committing budget.</p>
   </div>
 
   <div class="card">
-    <h3>Property records</h3>
-    <div class="vendor-row">
-      <div>
-        <div class="vendor-name">Realie</div>
-        <div class="vendor-desc">Nationwide owner, parcel, and tax baseline. $50/mo floor. Recommended as the primary property data source for MVP.</div>
-      </div>
-      <span class="badge rec">Recommended</span>
+    <h3>API &amp; integration inventory</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Source</th><th>Category</th><th>API</th><th>Auth</th><th>Entry price</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RealtyAPI</td><td>Listings</td><td>REST/GraphQL</td><td>API key</td><td>Free → $20/mo</td><td>Portal-scraped listings, <strong>not</strong> public records</td></tr>
+          <tr><td>Realie</td><td>Property records</td><td>REST</td><td>API key</td><td>Free → $50/mo</td><td>Cheapest nationwide owner/parcel/tax</td></tr>
+          <tr><td>RealEstateAPI</td><td>Property records</td><td>REST</td><td>API key</td><td>$599/mo (7-day trial)</td><td>Broadest: comps, parcels, skip-tracing</td></tr>
+          <tr><td>Zillow / Bridge</td><td>Listings (MLS)</td><td>Gated</td><td>OAuth/token</td><td>Qualification-gated</td><td>No open API since 2021; MLS affiliation</td></tr>
+          <tr><td>MLS (RESO Web API)</td><td>Listings</td><td>REST/OData</td><td>OAuth</td><td>Per-MLS</td><td>~500 MLSs, each its own approval</td></tr>
+          <tr><td>DataTree (First American)</td><td>Title-grade records</td><td>REST</td><td>Enterprise key</td><td>Contact sales (~$30k/yr est.)</td><td>Deed images + AVM, most authoritative</td></tr>
+          <tr><td>Regrid</td><td>Parcels</td><td>REST + tiles</td><td>API token</td><td>Trial; price login-gated</td><td>155M+ parcels, ownership</td></tr>
+          <tr><td>PropertyShark</td><td>Property/flood</td><td>No API</td><td>—</td><td>App $60–170/mo</td><td>2009 API defunct; scrapers only</td></tr>
+          <tr><td>Shovels.ai</td><td>Building permits</td><td>REST</td><td>API key</td><td>Free key → $599/mo</td><td>170M+ permits, contractors</td></tr>
+          <tr><td>WRO (Westchester Records)</td><td>Deeds/title</td><td>Portal only</td><td>Free login</td><td>Gov copy fees</td><td>Manual deed/title search, no API</td></tr>
+          <tr><td>FEMA MSC</td><td>Flood</td><td>Downloads + URL</td><td>None</td><td>Free</td><td>FIRMs/FIRMettes/NFHL extracts</td></tr>
+          <tr><td>FEMA NFHL</td><td>Flood</td><td>ArcGIS REST + WMS</td><td>None</td><td>Free</td><td>Real programmatic flood-zone lookup</td></tr>
+          <tr><td>First Street</td><td>Climate risk</td><td>REST</td><td>API key (contract)</td><td>Contact sales</td><td>Free aggregated data via AWS Open Data</td></tr>
+          <tr><td>Westchester County GIS</td><td>Parcels/flood</td><td>ArcGIS REST/WMS/WFS</td><td>None</td><td>Free</td><td>County parcels + FEMA floodplains</td></tr>
+          <tr><td>BTS Noise Map</td><td>Noise</td><td>ArcGIS REST/WMS</td><td>None</td><td>Free</td><td>Modeled road + aviation dBA</td></tr>
+          <tr><td>Visual Crossing</td><td>Weather</td><td>REST/JSON</td><td>API key</td><td>Free 1k/day → ~$35/mo</td><td>Transparent pricing, generous free tier</td></tr>
+          <tr><td>NCES (Urban Institute API)</td><td>Schools</td><td>REST</td><td>None</td><td>Free</td><td>Recommended path for school data</td></tr>
+          <tr><td>NY SED (data.nysed.gov)</td><td>Schools (NY)</td><td>Download only</td><td>None</td><td>Free</td><td>Access/Excel files, no API</td></tr>
+          <tr><td>Reddit</td><td>Social</td><td>REST</td><td>OAuth 2.0</td><td>Free hobby; ~$0.24/1k commercial</td><td>Expensive/gated for commercial</td></tr>
+          <tr><td>Meta Graph / Pages</td><td>Social</td><td>Restricted</td><td>OAuth 2.0</td><td>Free calls</td><td>App Review barrier; own Pages only</td></tr>
+          <tr><td>Nextdoor</td><td>Social (local)</td><td>Partner-gated</td><td>Partner</td><td>Contact only</td><td>Geo-scoped local posts, 30-day window</td></tr>
+          <tr><td>Google — Address Validation</td><td>Address</td><td>REST</td><td>API key</td><td>$17/1k; ~5k/mo free</td><td>Address validator at intake</td></tr>
+          <tr><td>Google — Places</td><td>Nearby POIs</td><td>REST</td><td>API key</td><td>$32/1k; ~5k/mo free</td><td>Restaurants/bars/schools nearby</td></tr>
+          <tr><td>YouTube / transcripts</td><td>Media</td><td>3rd-party best</td><td>OAuth / API key</td><td>Free quota; 3rd-party freemium</td><td>Official <strong>can't</strong> fetch others' captions</td></tr>
+          <tr><td>News search</td><td>Media</td><td>Many</td><td>API key (GDELT none)</td><td>GDELT free; others $25–449/mo</td><td>Bing News API retired Aug 2025</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="vendor-row">
-      <div>
-        <div class="vendor-name">WRO (Westchester Records Online)</div>
-        <div class="vendor-desc">Direct deed retrieval via browser automation. Free, primary path for chain-of-title. Prototype confirms viability.</div>
-      </div>
-      <span class="badge rec">Recommended</span>
+    <p class="note">Not an API (handled separately): property-tax = <em>assessment roll × mill rate</em> (a calculation); LLM summary = a generation step (Anthropic API); Westchester water-quality = static <code>.xlsx</code> + CCR PDFs; town agenda/minutes = per-town PDF scraping.</p>
+  </div>
+
+  <div class="card">
+    <h3>Recommended vendor stack — MVP</h3>
+    <ul class="item-list">
+      <li><strong>Property records (core):</strong> <strong>Realie</strong> as the nationwide owner/parcel/tax baseline ($50/mo floor); reserve <strong>DataTree</strong> for authoritative deed images / title history when a report needs it. Add <strong>RealEstateAPI</strong> only if comps + skip-tracing become MVP scope.</li>
+      <li><strong>Hazard &amp; environment (free):</strong> FEMA NFHL (flood zones), Westchester County GIS (parcels/floodplains), BTS Noise Map — all ArcGIS REST, no key.</li>
+      <li><strong>Schools (free):</strong> NCES via Urban Institute API.</li>
+      <li><strong>Weather + address:</strong> Visual Crossing (free 1k/day → ~$35/mo) and Google Address Validation ($17/1k) — transparent, self-serve.</li>
+      <li><strong>News / local activity:</strong> GDELT (free) as the base, optionally one low-tier aggregator; town-meeting video via a 3rd-party transcript API.</li>
+      <li><strong>Defer / plan ahead:</strong> Reddit, Nextdoor, First Street, Zillow/MLS — all need approval, partnership, or contract cycles; not on the MVP critical path.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Vendor stack by tier</h3>
+    <div class="tier">
+      <div class="tier-head"><span class="badge free">Free</span><strong>Use directly — no budget</strong></div>
+      <p>FEMA NFHL, Westchester County GIS, BTS Noise Map, NCES (Urban Institute), GDELT. Cover flood, noise, school, and local-news sections at zero cost via ArcGIS REST / open APIs.</p>
     </div>
-    <div class="vendor-row">
-      <div>
-        <div class="vendor-name">County GIS</div>
-        <div class="vendor-desc">Parcel boundaries, assessment roll data. Free public datasets.</div>
-      </div>
-      <span class="badge free">Free tier</span>
+    <div class="tier">
+      <div class="tier-head"><span class="badge rec">Low-cost</span><strong>Transparent, self-serve</strong></div>
+      <p>Visual Crossing (weather, free 1k/day → ~$35/mo) and Google Maps Address Validation ($17/1k) — predictable, no sales cycle.</p>
+    </div>
+    <div class="tier">
+      <div class="tier-head"><span class="badge free">Core decision</span><strong>Property records — depth vs budget</strong></div>
+      <p><strong>Realie</strong> cheapest nationwide owner/parcel/tax ($50/mo floor, best value start). <strong>RealEstateAPI</strong> richer (comps, boundaries, skip-tracing) at $599/mo. <strong>DataTree</strong> title-grade + deed images, enterprise contract. <strong>Regrid</strong> strong parcel boundaries/ownership, price login-gated.</p>
+    </div>
+    <div class="tier">
+      <div class="tier-head"><span class="badge def">Gated</span><strong>Plan ahead — sales / approval cycles</strong></div>
+      <p>Reddit (paid + 2–4 wk approval), Nextdoor (partner approval), First Street (contract), Zillow/MLS (MLS affiliation). Meta is practically closed for community-sentiment scanning.</p>
+    </div>
+    <div class="tier">
+      <div class="tier-head"><span class="badge def">No API</span><strong>Scraping / manual or commercial proxy</strong></div>
+      <p>PropertyShark (use FEMA NFHL for flood instead), WRO / Westchester deeds (use DataTree or a title vendor to automate), NY SED files (download &amp; parse, or use Urban Institute), town agenda/minutes PDFs, town water-quality reports.</p>
     </div>
   </div>
 
   <div class="card">
-    <h3>Hazard &amp; environmental</h3>
-    <div class="vendor-row">
-      <div>
-        <div class="vendor-name">FEMA flood maps</div>
-        <div class="vendor-desc">Flood zone classification by parcel. Free public API.</div>
-      </div>
-      <span class="badge free">Free tier</span>
-    </div>
-    <div class="vendor-row">
-      <div>
-        <div class="vendor-name">Noise maps</div>
-        <div class="vendor-desc">Transportation noise data from public datasets. Free.</div>
-      </div>
-      <span class="badge free">Free tier</span>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Schools &amp; amenities</h3>
-    <div class="vendor-row">
-      <div>
-        <div class="vendor-name">School databases</div>
-        <div class="vendor-desc">Public school ratings and district boundaries. Free public data.</div>
-      </div>
-      <span class="badge free">Free tier</span>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Deferred — approval cycles required</h3>
-    <div class="vendor-row">
-      <div>
-        <div class="vendor-name">Reddit / Nextdoor</div>
-        <div class="vendor-desc">Local sentiment data. API access requires approval and may conflict with ToS. Deferred post-MVP.</div>
-      </div>
-      <span class="badge def">Deferred</span>
-    </div>
-    <div class="vendor-row">
-      <div>
-        <div class="vendor-name">Zillow / MLS</div>
-        <div class="vendor-desc">Listing and price history data. Licensing approval required. Deferred post-MVP.</div>
-      </div>
-      <span class="badge def">Deferred</span>
-    </div>
+    <h3>Deliverables</h3>
+    <ul class="checklist">
+      <li>API and integration inventory (25 sources, with API type / auth / pricing / caveats)</li>
+      <li>Recommended vendor stack (MVP pick + tiered fallback)</li>
+    </ul>
   </div>
 
   <!-- 3.2 -->
   <div class="spacer"></div>
-  <p class="section-label">3.2 — Document extraction workflow</p>
+  <p class="section-label">3.2 — Define OCR &amp; deed extraction workflow <span style="font-weight:400;text-transform:none;letter-spacing:0">SoW §3</span></p>
 
   <div class="card">
-    <h3>Deed image → structured data — 8-step process</h3>
-    <div class="flow-step">
-      <div class="step-num">1</div>
-      <div class="step-body"><h4>Acquisition</h4><p>Deed image downloaded from WRO via browser automation and stored in Vercel Blob. Original preserved for audit trail.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">2</div>
-      <div class="step-body"><h4>Preprocessing</h4><p>Image normalization — deskew, contrast enhancement, resolution upscaling for low-quality historical scans.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">3</div>
-      <div class="step-body"><h4>OCR</h4><p>Text recognition run on preprocessed image. Word-level confidence scores captured for downstream quality gating.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">4</div>
-      <div class="step-body"><h4>Schema-constrained LLM extraction</h4><p>Claude Opus 4.8 vision handles complex legal document parsing directly — no county-specific model training required. Extracts grantor, grantee, date, consideration, legal description, encumbrances, and prior-deed reference. Output validated against a shared Zod schema.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">5</div>
-      <div class="step-body"><h4>Normalization</h4><p>Names, dates, and addresses standardized to canonical formats for consistent chain-of-title linking.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">6</div>
-      <div class="step-body"><h4>Confidence scoring</h4><p>Composite score from OCR confidence + LLM extraction certainty. Fields below threshold flagged for human review.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">7</div>
-      <div class="step-body"><h4>Persistence</h4><p>Structured extraction written to Postgres pipeline tables. Raw deed PDF key retained in Blob.</p></div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">8</div>
-      <div class="step-body"><h4>Human review queue</h4><p>Low-confidence extractions surfaced to a review queue. Reviewer can correct fields; corrections feed back to improve future extractions.</p></div>
+    <p>Runs as durable steps in the report pipeline (Phase 2.2), keyed by <code>reportId</code>, writing to the <code>document</code> / <code>extraction</code> / <code>review_item</code> tables. Low-confidence output never fails a report — it routes to manual review and the report ships <em>partial</em>.</p>
+  </div>
+
+  <div class="card">
+    <h3>OCR &amp; deed-extraction workflow — end to end</h3>
+    <ul class="item-list">
+      <li><strong>1 · Acquire the deed.</strong> Primary: <strong>DataTree</strong> recorded-document images (3.1). Fallbacks: county/WRO portal (manual) or user upload. Store the raw file in <strong>Vercel Blob</strong>; create a <code>document</code> row (type, checksum, source provenance).</li>
+      <li><strong>2 · Pre-process.</strong> Normalize to PDF/image, split multi-page, deskew/detect orientation, drop blank pages. Dedup by checksum so re-purchases of the same deed reuse prior extractions within TTL.</li>
+      <li><strong>3 · OCR / layout.</strong> Run a layout-OCR pass (engine options below) to get raw text + word-level confidence + page structure. Skip for clean digital PDFs where the LLM reads directly.</li>
+      <li><strong>4 · Structured extraction.</strong> A <strong>schema-constrained LLM pass</strong> turns the document (image/PDF + any OCR text) into typed JSON validated against the shared <strong>Zod schema</strong> (2.1) — one source of truth for fields and types.</li>
+      <li><strong>5 · Normalize.</strong> Canonicalize names, addresses, dates, money, and parcel IDs (strategy below); link to the resolved <code>property</code>.</li>
+      <li><strong>6 · Confidence + cross-validate.</strong> Score each field; reconcile against structured records (Realie / Regrid / DataTree owner + parcel). Agreement boosts confidence; disagreement flags review.</li>
+      <li><strong>7 · Persist.</strong> Write the <code>extraction</code> (values + per-field confidence, linked to <code>document</code>); low-confidence fields → <code>review_item</code>. Pin the source versions the report was built from (point-in-time provenance).</li>
+      <li><strong>8 · Human review loop.</strong> Reviewer corrects flagged fields; corrections persist and feed back; the report flips <em>partial → success</em>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Target fields (deed → schema)</h3>
+    <ul class="item-list">
+      <li><strong>Parties:</strong> grantor(s) and grantee(s) — names + role (the "last deed / owner names" need from the Title History note).</li>
+      <li><strong>Recording:</strong> instrument # or book/page, recording date, jurisdiction/county.</li>
+      <li><strong>Property:</strong> legal description, parcel id / APN, situs address.</li>
+      <li><strong>Transaction:</strong> consideration amount, deed type (warranty/quitclaim), execution date.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Extraction engine — options</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Engine</th><th>Strength</th><th>Confidence output</th><th>Fit for deeds</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AWS Textract</td>
+            <td>OCR + forms/tables + Queries</td>
+            <td>Per-word/field score</td>
+            <td>Good printed text; weak on dense legal prose / cursive; field semantics need rules</td>
+          </tr>
+          <tr>
+            <td>Google Document AI</td>
+            <td>OCR + trainable Custom Extractor</td>
+            <td>Per-field score</td>
+            <td>Strong layout; custom processor can be trained on deeds (added effort)</td>
+          </tr>
+          <tr>
+            <td>Azure Document Intelligence</td>
+            <td>Prebuilt + custom models</td>
+            <td>Per-field score</td>
+            <td>Comparable to Document AI; custom-model training to fit deeds</td>
+          </tr>
+          <tr>
+            <td><strong>Claude (Opus 4.8) vision</strong></td>
+            <td>Reads image/PDF, schema-constrained JSON, reasons over legal language (grantor vs grantee)</td>
+            <td>No native calibrated score — derive from OCR + cross-check + self-rated flags</td>
+            <td>Best at messy/semi-structured deeds; high-res vision; no model training needed</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <div class="highlight">
-    <strong>Model choice:</strong> Claude Opus 4.8 vision handles complex legal documents directly — no county-specific model training, no fine-tuning pipeline to maintain.
+  <div class="card">
+    <h3>Recommendation — hybrid extraction</h3>
+    <ul class="item-list">
+      <li><strong>LLM-first for clean deeds:</strong> send the deed PDF/image straight to <strong>Claude Opus 4.8</strong> with a <strong>structured-output schema</strong> (the API constrains the response to valid JSON matching the shared Zod types) — it understands legal phrasing and party roles directly, with no per-county model training.</li>
+      <li><strong>OCR-then-LLM for degraded scans:</strong> run a layout-OCR engine (Textract / Document AI) first to recover text + word-level confidence, then the same Claude extraction pass over text + image. The OCR confidence becomes a real per-field signal.</li>
+      <li><strong>Confidence is composed, not assumed:</strong> OCR word confidence <em>+</em> cross-source agreement (Realie/Regrid/DataTree) <em>+</em> model-flagged uncertainty. No single number is trusted alone.</li>
+      <li><strong>Provider note:</strong> the extraction LLM is Anthropic Claude (Opus 4.8 — vision + structured outputs + document input); same provider as the report-summary step (2.2 "LLM summary"), so one integration serves both.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Data normalization strategy</h3>
+    <ul class="item-list">
+      <li><strong>Zod schemas as the contract</strong> (2.1): every extracted field is parsed/validated into a canonical type; ingestion, OCR output, and forms all share it.</li>
+      <li><strong>Persons / orgs:</strong> normalize casing, suffixes, and entity vs individual; keep raw + canonical for audit.</li>
+      <li><strong>Addresses:</strong> standardize via Google Address Validation (3.1) → match to the resolved <code>property</code>.</li>
+      <li><strong>Dates / money / APN:</strong> ISO-8601 dates, integer cents, jurisdiction-formatted parcel IDs.</li>
+      <li><strong>Legal description:</strong> stored verbatim; parsed opportunistically (lot/block, metes-and-bounds) without blocking the report.</li>
+      <li><strong>Cache &amp; reuse:</strong> normalized extractions keyed by property are reused across purchases within TTL (2.2).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Accuracy, confidence handling &amp; fallbacks</h3>
+    <ul class="item-list">
+      <li><strong>Thresholds:</strong> high confidence → auto-accept; medium → accept-with-flag; low → <code>review_item</code> (never silently dropped).</li>
+      <li><strong>Fallback chain:</strong> LLM-direct → OCR-then-LLM → manual review. A field that can't be resolved degrades the report to <em>partial</em>, it never fails the run.</li>
+      <li><strong>Never-fail principle:</strong> extraction errors and low confidence are first-class states mirrored to Postgres, surfaced in the UI (<em>loading → partial → success</em>).</li>
+      <li><strong>PII handling:</strong> deeds carry owner names — encryption at rest, row-level access scoped to the owning user, retention policy on raw deed files (2.2).</li>
+      <li><strong>Quality metrics:</strong> per-field extraction accuracy (sampled against review corrections), review-queue rate, cost per document, vendor/LLM latency.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Deliverables</h3>
+    <ul class="checklist">
+      <li>OCR &amp; deed-extraction workflow map</li>
+      <li>Data normalization strategy</li>
+      <li>Confidence handling &amp; fallback policy (incl. engine recommendation)</li>
+    </ul>
   </div>
 
   <!-- 3.3 -->
   <div class="spacer"></div>
-  <p class="section-label">3.3 — Pipeline architecture</p>
+  <p class="section-label">3.3 — Map ingestion, monitoring &amp; end-to-end flow <span style="font-weight:400;text-transform:none;letter-spacing:0">SoW §3</span></p>
 
   <div class="card">
-    <h3>Inngest-based durable workflow</h3>
-    <p>All data ingestion runs as durable Inngest functions. Sources are fetched in parallel where possible, with per-vendor concurrency limits to avoid rate-limit breaches. Each step has independent retry logic — a vendor failure doesn't block other data sources from completing.</p>
+    <p>Synthesizes the vendor inventory (3.1) and deed extraction (3.2) into one flow, running on the durable Inngest workflow from Phase 2.2. Stages 1–2 are synchronous (the request path); stage 3 onward runs in durable steps keyed by <code>reportId</code>.</p>
   </div>
 
-  <div class="two-col">
-    <div class="card">
-      <h3>Connector pattern</h3>
-      <ul class="item-list">
-        <li>Uniform adapter interface for all 25 sources</li>
-        <li>Each connector: fetch → validate (Zod) → cache → return</li>
-        <li>New sources added without touching pipeline core</li>
-        <li>Graceful degradation when vendor unavailable — report marks that section as incomplete rather than failing entirely</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Caching strategy</h3>
-      <ul class="item-list">
-        <li>Results cached by property ID in Postgres (JSONB)</li>
-        <li>TTL-based freshness per source type — deed data longer, market data shorter</li>
-        <li>Cache hit reused across multiple purchases for same property</li>
-        <li>Raw vendor payloads stored separately from normalized output</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="spacer"></div>
-  <p class="section-label">Governance &amp; monitoring</p>
-
-  <div class="two-col">
-    <div class="card">
-      <h3>Validation</h3>
-      <p>All pipeline outputs validated against shared Zod schemas — same schemas used at API boundaries and forms. Schema mismatches surface as structured errors, not silent failures.</p>
-    </div>
-    <div class="card">
-      <h3>Metrics tracked</h3>
-      <ul class="item-list">
-        <li>Cost per source per report</li>
-        <li>Vendor latency and error rates</li>
-        <li>Extraction accuracy (confidence score distribution)</li>
-        <li>Review queue depth</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="spacer"></div>
-  <p class="section-label">Deliverables checklist</p>
   <div class="card">
+    <h3>End-to-end data pipeline map</h3>
+    <div class="pipeline-stage">
+      <div class="stage-title"><span class="stage-num">1</span> Intake &amp; resolve</div>
+      <div class="stage-body">Address → <strong>Google Address Validation</strong> → normalize → <code>property</code> record (parcel id resolved against Realie/Regrid).</div>
+    </div>
+    <span class="arrow">↓</span>
+    <div class="pipeline-stage">
+      <div class="stage-title"><span class="stage-num">2</span> Order &amp; trigger</div>
+      <div class="stage-body">Stripe checkout → <code>order</code> paid → <code>report</code> (pending) → enqueue durable workflow (idempotent on <code>reportId</code>).</div>
+    </div>
+    <span class="arrow">↓</span>
+    <div class="pipeline-stage">
+      <div class="stage-title"><span class="stage-num">3</span> Parallel ingestion fan-out</div>
+      <div class="stage-body">One connector per source category — each with its own cache lookup, per-vendor concurrency/throttle, and provenance. Cached-within-TTL results skip the fetch.
+        <div class="stage-sources">
+          <span class="source-chip"><strong>Property records</strong> · Realie / DataTree / Regrid → owner, parcel, tax</span>
+          <span class="source-chip"><strong>Deeds</strong> · DataTree images → OCR + extraction (3.2)</span>
+          <span class="source-chip"><strong>Hazard / GIS</strong> · FEMA NFHL, Westchester GIS, BTS noise (free ArcGIS)</span>
+          <span class="source-chip"><strong>Schools</strong> · NCES via Urban Institute</span>
+          <span class="source-chip"><strong>Weather</strong> · Visual Crossing timeline</span>
+          <span class="source-chip"><strong>Nearby / local</strong> · Google Places; GDELT news</span>
+        </div>
+      </div>
+    </div>
+    <span class="arrow">↓</span>
+    <div class="pipeline-stage">
+      <div class="stage-title"><span class="stage-num">4</span> Normalize &amp; confidence-score</div>
+      <div class="stage-body">Per-source transforms → canonical <strong>Zod</strong> types (2.1); confidence + cross-source reconciliation; low-confidence → <code>review_item</code>.</div>
+    </div>
+    <span class="arrow">↓</span>
+    <div class="pipeline-stage">
+      <div class="stage-title"><span class="stage-num">5</span> Assemble &amp; summarize</div>
+      <div class="stage-body">Merge into report sections; <strong>Claude</strong> LLM summary (2.2). Missing/flagged sections ship <em>partial</em> rather than blocking.</div>
+    </div>
+    <span class="arrow">↓</span>
+    <div class="pipeline-stage" style="padding-bottom:0">
+      <div class="stage-title"><span class="stage-num">6</span> Persist &amp; deliver</div>
+      <div class="stage-body">Persist <code>report</code>; pin the <code>source_fetch</code> versions used (point-in-time provenance); UI streams <em>loading → partial → success</em>; notify user.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Data flow documentation — per source</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Source</th><th>Fetch</th><th>Transformation</th><th>Report section</th><th>Cache TTL</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Realie / DataTree / Regrid</td><td>REST (key)</td><td>Map owner/parcel/tax → canonical property; APN format</td><td>Ownership, tax, parcel</td><td>Medium (per county freshness)</td></tr>
+          <tr><td>DataTree deed images</td><td>REST → Blob</td><td>OCR → schema extraction → normalize (3.2)</td><td>Title / deed history</td><td>Long (deeds rarely change)</td></tr>
+          <tr><td>FEMA NFHL</td><td>ArcGIS query</td><td>Point-in-polygon → flood zone code + BFE</td><td>Flood risk</td><td>Long (monthly refresh)</td></tr>
+          <tr><td>Westchester County GIS</td><td>ArcGIS query</td><td>Parcel + floodplain attributes → GeoJSON</td><td>Parcel / flood</td><td>Long</td></tr>
+          <tr><td>BTS Noise Map</td><td>ArcGIS / ImageServer</td><td>Sample dBA at point → band</td><td>Noise</td><td>Long (annual vintage)</td></tr>
+          <tr><td>NCES (Urban Institute)</td><td>REST (none)</td><td>Schools near point → ratings/enrollment</td><td>Schools</td><td>Long (data lags 1–2 yr)</td></tr>
+          <tr><td>Visual Crossing</td><td>REST (key)</td><td>History/forecast → storm &amp; precip summary</td><td>Weather / drainage</td><td>Short (forecast freshness)</td></tr>
+          <tr><td>Google Places</td><td>REST (key)</td><td>Nearby POIs → categorized list (field-masked)</td><td>Nearby places</td><td>Medium</td></tr>
+          <tr><td>GDELT news</td><td>REST (none)</td><td>Geo/keyword query → ranked articles</td><td>Local activity</td><td>Short (rolling window)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:12px; font-size:13px; color:var(--color-text-secondary)">Every fetch is wrapped by a uniform connector adapter (one interface: <code>fetch → cache → normalize → score</code>), so adding or swapping a vendor is an adapter change. Each result is cached as <code>source_fetch</code> (JSONB + provenance + <code>fetched_at</code> + TTL) and reused across purchases while fresh.</p>
+  </div>
+
+  <div class="card">
+    <h3>Ingestion &amp; monitoring approach</h3>
+    <ul class="item-list">
+      <li><strong>Connector pattern:</strong> uniform adapter per source; the orchestrator (Inngest) enforces per-vendor concurrency, throttle, and retries so external rate limits — the real ceiling (2.3) — are never breached.</li>
+      <li><strong>Cache-and-reuse:</strong> keyed by property; stale → refetch. Primary lever for staying under vendor caps and controlling cost per report.</li>
+      <li><strong>Degrade, don't fail:</strong> a down or rate-limited vendor yields a <em>partial</em> section + a flag, never a failed report; step state mirrored to Postgres so the UI doesn't depend on the queue.</li>
+      <li><strong>Errors:</strong> Sentry across connectors, extraction, and assembly.</li>
+      <li><strong>Pipeline tracing:</strong> Inngest dashboard for per-step retries/latency; step state also in Postgres.</li>
+      <li><strong>Per-source KPIs:</strong> latency, error rate, <em>cost per report</em>, cache-hit rate, data freshness (TTL age), and review-queue depth — surfaced as the business-KPI set from 2.3.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Deliverables</h3>
     <ul class="checklist">
-      <li>25 data sources evaluated across 5 categories</li>
-      <li>MVP vendor stack defined with cost model</li>
-      <li>8-step deed extraction workflow documented</li>
-      <li>Inngest pipeline architecture with connector pattern</li>
-      <li>Caching, TTL, and graceful degradation strategy</li>
-      <li>Governance: Zod validation, confidence scoring, human review queue</li>
+      <li>End-to-end data pipeline map</li>
+      <li>Data flow documentation (per-source fetch → transformation → section → TTL)</li>
+      <li>Ingestion &amp; monitoring approach</li>
     </ul>
   </div>
 

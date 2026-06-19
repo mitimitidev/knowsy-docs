@@ -17,6 +17,7 @@
   --color-border-secondary: rgba(0,0,0,.18);
   --border-radius-md: 8px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -40,7 +41,7 @@ nav { background: var(--color-background-primary); border-bottom: 0.5px solid va
 .nav-sep { color: var(--color-border-secondary); }
 .nav-title { color: var(--color-text-secondary); }
 header.hero { background: #111110; color: #fff; padding: 44px 0 40px; }
-.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 10px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .1em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 8px; }
 header.hero h1 { margin: 0 0 10px; font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.3px; }
 header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-height: 1.6; }
 .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
@@ -48,29 +49,34 @@ header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-
 .content { padding: 32px 0 64px; }
 .section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px; padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
 .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
-.card h3 { margin: 0 0 8px; font-size: 15px; font-weight: 500; }
+.card h3 { margin: 0 0 10px; font-size: 15px; font-weight: 500; }
 .card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-.cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 4px; }
-.cost-table th { text-align: left; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: var(--color-text-tertiary); padding: 0 0 8px; border-bottom: 0.5px solid var(--color-border-secondary); }
-.cost-table td { padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); vertical-align: top; }
-.cost-table tr:last-child td { border-bottom: none; }
-.cost-table td:first-child { color: var(--color-text-primary); font-weight: 400; width: 200px; }
-.cost-table td.num { text-align: right; font-weight: 500; color: var(--color-text-primary); white-space: nowrap; padding-left: 16px; }
-.cost-table tr.total td { border-top: 0.5px solid var(--color-border-secondary); border-bottom: none; font-weight: 500; color: var(--color-text-primary); padding-top: 12px; }
-.summary-box {
-  background: var(--color-text-primary); color: var(--color-background-primary);
-  border-radius: var(--border-radius-md); padding: 24px 26px; margin: 28px 0 8px;
-}
-.summary-box h3 { margin: 0 0 6px; font-size: 15px; font-weight: 500; }
-.summary-box p { margin: 0 0 16px; opacity: .65; font-size: 13px; }
-.summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.summary-grid .s-item { background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.14); border-radius: var(--border-radius-md); padding: 12px 14px; }
-.summary-grid .s-item .s-val { font-size: 22px; font-weight: 500; line-height: 1; }
-.summary-grid .s-item .s-lbl { font-size: 11px; opacity: .6; margin-top: 4px; }
+.card p + p { margin-top: 8px; }
+.note { font-size: 13px; color: var(--color-text-tertiary); margin-top: 12px !important; line-height: 1.6; }
+code { font-family: var(--font-mono); font-size: 12.5px; background: var(--color-background-tertiary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; padding: 1px 5px; color: var(--color-text-primary); }
+em { font-style: italic; }
+.item-list { list-style: none; margin: 0; padding: 0; }
+.item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.6; }
+.item-list li:last-child { border-bottom: none; }
+.item-list li strong { color: var(--color-text-primary); font-weight: 500; }
+.table-wrap { overflow-x: auto; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: var(--color-text-tertiary); padding: 0 14px 8px 0; border-bottom: 0.5px solid var(--color-border-secondary); white-space: nowrap; }
+td { padding: 9px 14px 9px 0; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); vertical-align: top; font-size: 13px; line-height: 1.5; }
+tr:last-child td { border-bottom: none; }
+td:first-child { color: var(--color-text-primary); font-weight: 500; }
+td.num { text-align: right; white-space: nowrap; color: var(--color-text-primary); font-weight: 500; }
+th.num { text-align: right; }
+tr.total td { border-top: 0.5px solid var(--color-border-secondary); color: var(--color-text-primary); font-weight: 500; }
+.highlight { background: var(--color-text-primary); color: var(--color-background-primary); border-radius: var(--border-radius-md); padding: 18px 22px; margin-bottom: 8px; font-size: 14px; line-height: 1.6; }
+.highlight strong { font-weight: 500; }
+.checklist { list-style: none; margin: 4px 0 0; padding: 0; }
+.checklist li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; align-items: center; line-height: 1.5; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: "✓"; color: var(--color-text-primary); font-weight: 500; font-size: 13px; flex-shrink: 0; }
 .spacer { margin-top: 28px; }
 footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
-@media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } .summary-grid { grid-template-columns: 1fr 1fr; } .cost-table td:first-child { width: auto; } }
+footer strong { color: var(--color-text-secondary); font-weight: 500; }
 </style>
 </head>
 <body>
@@ -89,10 +95,10 @@ footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px;
   <div class="wrap">
     <p class="eyebrow">Phase 4 · Week 3</p>
     <h1>API &amp; Infrastructure Cost Analysis</h1>
-    <p>Per-report variable cost model, hosting and infrastructure estimates, and pricing guidance for the Knowsy MVP — based on recommended vendor stack from Phase 3.</p>
+    <p>The vendor budget overview and MVP-friendly infrastructure recommendations derived from projected usage.</p>
     <div class="meta-row">
       <span class="chip">2 tasks</span>
-      <span class="chip">1 deliverable</span>
+      <span class="chip">4 deliverables</span>
       <span class="chip">Week 3</span>
     </div>
   </div>
@@ -100,107 +106,138 @@ footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px;
 
 <div class="wrap content">
 
-  <p class="section-label">Per-report variable cost model</p>
+  <!-- 4.1 -->
+  <p class="section-label">4.1 — Analyze API &amp; AI/OCR processing pricing <span style="font-weight:400;text-transform:none;letter-spacing:0">SoW §4</span></p>
+
   <div class="card">
-    <h3>Assumptions</h3>
-    <p>Average chain length: 5 deeds per report. Each deed requires one WRO retrieval, one OCR call, and one AI parsing call. Estimates based on published pricing as of June 2026.</p>
-  </div>
-  <div class="card" style="margin-top:8px">
-    <h3>Cost per report breakdown</h3>
-    <table class="cost-table">
-      <thead>
-        <tr>
-          <th>Line item</th>
-          <th>Unit</th>
-          <th>Per deed</th>
-          <th class="num">5-deed total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Google Document AI (OCR)</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">$1.50 / 1000 pages</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">~$0.005</td>
-          <td class="num">~$0.025</td>
-        </tr>
-        <tr>
-          <td>Claude — deed parsing</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">~4k tokens / deed</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">~$0.03</td>
-          <td class="num">~$0.15</td>
-        </tr>
-        <tr>
-          <td>Assessment roll lookup</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">County data (free)</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">$0.00</td>
-          <td class="num">$0.00</td>
-        </tr>
-        <tr>
-          <td>Vercel Blob storage</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">~2MB / deed PDF</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">&lt;$0.001</td>
-          <td class="num">~$0.003</td>
-        </tr>
-        <tr>
-          <td>Vercel Function compute</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">Active CPU time</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">~$0.003</td>
-          <td class="num">~$0.015</td>
-        </tr>
-        <tr>
-          <td>Stripe payment processing</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">2.9% + $0.30</td>
-          <td style="color:var(--color-text-secondary); font-size:13px">—</td>
-          <td class="num">~$0.59 at $9.99</td>
-        </tr>
-        <tr class="total">
-          <td colspan="3">Total variable cost per report (excl. Stripe)</td>
-          <td class="num">~$0.19</td>
-        </tr>
-        <tr class="total" style="border-top:none">
-          <td colspan="3">Total incl. Stripe at $9.99 price point</td>
-          <td class="num">~$0.78</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>All figures are estimates (June 2026) built from the 3.1 pricing research and the 3.2 extraction design. Several vendor prices are login-gated or contract-based — confirm on each vendor's pricing page before committing budget. Token estimates assume typical deed/report sizes and will vary with document length and report scope.</p>
   </div>
 
-  <div class="summary-box">
-    <h3>Unit economics summary</h3>
-    <p>At a $9.99 price point with ~$0.78 variable cost per report, gross margin is approximately 92% before fixed infrastructure costs.</p>
-    <div class="summary-grid">
-      <div class="s-item"><div class="s-val">$9.99</div><div class="s-lbl">Suggested list price</div></div>
-      <div class="s-item"><div class="s-val">~$0.78</div><div class="s-lbl">Variable cost / report</div></div>
-      <div class="s-item"><div class="s-val">~92%</div><div class="s-lbl">Gross margin</div></div>
-    </div>
-  </div>
-
-  <div class="spacer"></div>
-  <p class="section-label">Fixed infrastructure — monthly estimates</p>
-  <div class="two-col">
-    <div class="card">
-      <h3>Vercel (Pro plan)</h3>
-      <table class="cost-table">
+  <div class="card">
+    <h3>API / vendor pricing — MVP shortlist</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Vendor</th><th>Model</th><th>Fixed / mo</th><th>Marginal / report</th></tr>
+        </thead>
         <tbody>
-          <tr><td>Pro plan base</td><td class="num">$20/mo</td></tr>
-          <tr><td>Postgres (Marketplace)</td><td class="num">~$15/mo</td></tr>
-          <tr><td>Blob storage (100GB)</td><td class="num">~$5/mo</td></tr>
-          <tr class="total"><td>Total (light usage)</td><td class="num">~$40/mo</td></tr>
+          <tr><td>Realie (property records)</td><td>Subscription + overage</td><td>$50 → $150 → $350</td><td>~$0.01–0.15</td></tr>
+          <tr><td>DataTree (deeds)</td><td>Enterprise contract</td><td>~$2,500 (est.)</td><td>bundled</td></tr>
+          <tr><td>Google Address Validation</td><td>Metered ($17/1k)</td><td>~5k/mo free</td><td>~$0.017</td></tr>
+          <tr><td>Google Places</td><td>Metered ($32/1k)</td><td>~5k/mo free</td><td>~$0.03–0.10</td></tr>
+          <tr><td>Visual Crossing (weather)</td><td>Metered + tier</td><td>free 1k/day → ~$35</td><td>~$0.01–0.05</td></tr>
+          <tr><td>FEMA NFHL · Westchester GIS · BTS · NCES · GDELT</td><td>Public / open</td><td>Free</td><td>$0</td></tr>
+          <tr><td>Claude (extraction + summary)</td><td>Token-metered</td><td>—</td><td>~$0.30</td></tr>
+          <tr><td>OCR fallback (Textract, degraded scans)</td><td>Per page</td><td>—</td><td>~$0.02 (amortized)</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="card">
-      <h3>Break-even volume</h3>
-      <p>At $40/mo fixed costs and ~$9.21 net revenue per report (after Stripe), break-even is reached at approximately <strong>5 reports / month</strong>. This is a very low bar for a consumer product.</p>
+  </div>
+
+  <div class="card">
+    <h3>AI / OCR cost per report — Claude Opus 4.8</h3>
+    <p style="margin-bottom:12px">Claude Opus 4.8 pricing: $5 / 1M input, $25 / 1M output tokens. Two passes per report:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pass</th><th class="num">Input tok</th><th class="num">Output tok</th><th class="num">Cost</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Deed extraction (vision + schema)</td><td class="num">~15k</td><td class="num">~2k</td><td class="num">~$0.13</td></tr>
+          <tr><td>Report summary (assembled data)</td><td class="num">~20k</td><td class="num">~4k</td><td class="num">~$0.20</td></tr>
+          <tr class="total"><td>Per report (before caching)</td><td class="num">~35k</td><td class="num">~6k</td><td class="num">~$0.33</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="note">Prompt caching on the shared schema + system prompt (read at ~0.1× input) trims the repeated prefix, bringing the steady-state figure toward ~$0.25–0.30/report. OCR is only invoked for degraded scans, so its cost is amortized across all reports.</p>
+  </div>
+
+  <div class="card">
+    <h3>Cost-per-report model at MVP volumes</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Reports / mo</th><th class="num">Fixed / mo</th><th class="num">Variable / mo</th><th class="num">Total / mo</th><th class="num">Per report</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>100</td><td class="num">~$150</td><td class="num">~$50</td><td class="num">~$200</td><td class="num">~$2.00</td></tr>
+          <tr><td>1,000</td><td class="num">~$200</td><td class="num">~$500</td><td class="num">~$700</td><td class="num">~$0.70</td></tr>
+          <tr><td>5,000</td><td class="num">~$350</td><td class="num">~$2,500</td><td class="num">~$2,850</td><td class="num">~$0.57</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Variable cost ≈ ~$0.50/report (Claude ~$0.30 + property records ~$0.10 + maps/weather ~$0.08 + free sources $0). Fixed baseline excludes the DataTree enterprise contract — the single biggest swing factor (see note).</p>
+  </div>
+
+  <div class="highlight">
+    <strong>DataTree is the dominant variable.</strong> If authoritative deed images are in MVP scope, add a ~$2,500/mo enterprise contract to fixed cost — at 100 reports/mo that alone is ~$25/report. Defer DataTree (use county/WRO + user upload) until volume justifies it, or scope deeds to a premium report tier.
   </div>
 
   <div class="spacer"></div>
-  <p class="section-label">WRO fallback cost scenario</p>
+  <p class="section-label">Deliverables</p>
   <div class="card">
-    <h3>If WRO is blocked — DataTrace API fallback</h3>
-    <p>DataTrace charges approximately $2–4 per document retrieval. A 5-deed chain would add $10–20 in data costs per report, making the current $9.99 price point unprofitable. In this scenario, pricing would need to move to $29–49 or a hybrid retrieval model (WRO first, vendor fallback only on failure) would be required to maintain margins.</p>
-    <p style="margin-top:10px">This is the primary cost risk and the key reason WRO automation is treated as a P0 technical requirement in Phase 3.</p>
+    <ul class="checklist">
+      <li>API &amp; AI/OCR pricing analysis (per-vendor + per-report token model)</li>
+      <li>Cost-per-report model at projected MVP volumes</li>
+    </ul>
+  </div>
+
+  <!-- 4.2 -->
+  <div class="spacer"></div>
+  <p class="section-label">4.2 — Estimate hosting, storage &amp; scaling costs <span style="font-weight:400;text-transform:none;letter-spacing:0">SoW §4</span></p>
+
+  <div class="card">
+    <p>Serverless + scale-to-zero means the platform baseline stays low at MVP volume; cost tracks usage rather than provisioned capacity.</p>
+  </div>
+
+  <div class="card">
+    <h3>Infrastructure &amp; storage costs (MVP)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Service</th><th>Role</th><th>MVP tier</th><th class="num">~ / mo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vercel</td><td>Web + API + functions (compute, bandwidth)</td><td>Pro + usage</td><td class="num">$20+</td></tr>
+          <tr><td>Neon (Postgres)</td><td>Domain + pipeline state; autoscale, scale-to-zero</td><td>Launch</td><td class="num">~$19</td></tr>
+          <tr><td>Inngest</td><td>Durable workflow orchestration</td><td>Free → paid</td><td class="num">$0 → $</td></tr>
+          <tr><td>Vercel Blob</td><td>Deed files (storage + egress)</td><td>Usage</td><td class="num">~$5+</td></tr>
+          <tr><td>Sentry</td><td>Error monitoring</td><td>Free → Team</td><td class="num">$0 → $26</td></tr>
+          <tr class="total"><td>Platform baseline</td><td>excl. data vendors &amp; Claude</td><td></td><td class="num">~$60–150</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Scaling considerations</h3>
+    <ul class="item-list">
+      <li><strong>Scales per report (variable):</strong> Claude tokens, OCR pages, property-records calls, Google Places/Address calls — these dominate at volume and are the levers to optimize.</li>
+      <li><strong>Scales gently:</strong> Vercel compute/bandwidth, Inngest runs, Neon compute — autoscale absorbs load; serverless keeps idle cost near zero.</li>
+      <li><strong>Storage grows monotonically:</strong> Vercel Blob accumulates deed files — apply a retention policy (2.2) and serve derived/thumbnail assets, not raw scans, to control egress.</li>
+      <li><strong>The real ceiling is vendors, not infra (2.3):</strong> cache-and-reuse keyed by property is the primary cost lever — re-purchases within TTL skip paid fetches entirely.</li>
+      <li><strong>Cost-control levers:</strong> prompt caching (Claude), field masks (Places), aggressive TTLs on stable data (deeds, flood), and free public sources for hazard/schools/news.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>MVP-friendly infrastructure recommendations</h3>
+    <ul class="item-list">
+      <li><strong>Stay serverless + scale-to-zero:</strong> Vercel + Neon + Inngest free/low tiers keep fixed cost ~$60–150/mo until traffic justifies upgrades.</li>
+      <li><strong>Defer the enterprise contract:</strong> launch without DataTree (county/WRO + user upload for deeds); add it only when deed volume or a premium tier pays for the ~$2,500/mo floor.</li>
+      <li><strong>Start Realie at $50/mo</strong> and let overage/tier track actual volume; reassess vs RealEstateAPI ($599/mo) only if comps/skip-tracing enter scope.</li>
+      <li><strong>Lean on free + transparent vendors</strong> (FEMA, GIS, NCES, GDELT, Visual Crossing, Google) so the only contract-gated dependency is optional.</li>
+      <li><strong>Instrument cost per report from day one</strong> (2.3 KPI) — it's the metric that tells you when to move tiers or renegotiate.</li>
+    </ul>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">Deliverables</p>
+  <div class="card">
+    <ul class="checklist">
+      <li>API / vendor budget overview</li>
+      <li>MVP-friendly infrastructure recommendations</li>
+    </ul>
   </div>
 
 </div>
