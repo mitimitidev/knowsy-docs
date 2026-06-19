@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Deliverables — Technical Architecture Definition</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f4f0;
+  --color-background-tertiary: #eeecea;
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #6b6b65;
+  --color-text-tertiary: #9c9a92;
+  --color-border-tertiary: rgba(0,0,0,.1);
+  --color-border-secondary: rgba(0,0,0,.18);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary: #1a1a18;
+    --color-background-secondary: #242420;
+    --color-background-tertiary: #2c2c2a;
+    --color-text-primary: #f0ede8;
+    --color-text-secondary: #9c9a92;
+    --color-text-tertiary: #6b6b65;
+    --color-border-tertiary: rgba(255,255,255,.08);
+    --color-border-secondary: rgba(255,255,255,.14);
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.6 var(--font-sans); color: var(--color-text-primary); background: var(--color-background-tertiary); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+nav { background: var(--color-background-primary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+.nav-inner { display: flex; align-items: center; gap: 12px; padding: 14px 0; font-size: 13px; }
+.back { display: flex; align-items: center; gap: 6px; color: var(--color-text-secondary); text-decoration: none; }
+.back:hover { color: var(--color-text-primary); }
+.nav-sep { color: var(--color-border-secondary); }
+.nav-title { color: var(--color-text-secondary); }
+header.hero { background: #111110; color: #fff; padding: 44px 0 40px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 10px; }
+header.hero h1 { margin: 0 0 10px; font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.3px; }
+header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-height: 1.6; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.chip { background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.16); padding: 4px 12px; border-radius: 999px; font-size: 12px; }
+.content { padding: 32px 0 64px; }
+.section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px; padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
+.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 500; }
+.card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
+.item-list { list-style: none; margin: 10px 0 0; padding: 0; }
+.item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 8px; align-items: flex-start; }
+.item-list li:last-child { border-bottom: none; }
+.item-list li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--color-text-tertiary); margin-top: 8px; }
+.decision { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 16px 20px; margin-bottom: 8px; display: flex; gap: 14px; align-items: flex-start; }
+.decision .d-label { flex-shrink: 0; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-tertiary); margin-top: 2px; min-width: 80px; }
+.decision .d-body h4 { margin: 0 0 3px; font-size: 14px; font-weight: 500; }
+.decision .d-body p { margin: 0; font-size: 13px; color: var(--color-text-secondary); }
+.spacer { margin-top: 28px; }
+footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
+@media (max-width: 620px) { .two-col, .three-col { grid-template-columns: 1fr; } .decision { flex-direction: column; gap: 4px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a class="back" href="discovery-plan.html"><i class="ti ti-arrow-left"></i> Discovery plan</a>
+      <span class="nav-sep">/</span>
+      <span class="nav-title">Phase 2 deliverables</span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Phase 2 · Week 1–2</p>
+    <h1>Technical Architecture Definition</h1>
+    <p>Frontend and backend architecture recommendation, data storage strategy, report generation flow, and infrastructure planning for the Knowsy MVP.</p>
+    <div class="meta-row">
+      <span class="chip">3 tasks</span>
+      <span class="chip">1 deliverable</span>
+      <span class="chip">Weeks 1–2</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap content">
+
+  <p class="section-label">Architecture overview</p>
+  <div class="card">
+    <h3>Recommended stack</h3>
+    <p>A monorepo Next.js application deployed on Vercel. The frontend and API routes live together. Background processing (deed retrieval, OCR, AI analysis) runs as Vercel Functions triggered by queue events. Storage is split: Vercel Blob for raw deed PDFs, Postgres (via Vercel Marketplace) for structured report data.</p>
+  </div>
+
+  <div class="three-col" style="margin-top:8px">
+    <div class="card">
+      <h3>Frontend</h3>
+      <p style="margin-top:6px; font-size:13px">Next.js App Router · React · Tailwind CSS · Stripe Elements</p>
+    </div>
+    <div class="card">
+      <h3>Backend</h3>
+      <p style="margin-top:6px; font-size:13px">Next.js API routes · Vercel Functions · Fluid Compute</p>
+    </div>
+    <div class="card">
+      <h3>Infrastructure</h3>
+      <p style="margin-top:6px; font-size:13px">Vercel (hosting) · Postgres · Blob · Queues (beta)</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">Report generation flow</p>
+  <div class="card">
+    <h3>End-to-end pipeline</h3>
+    <ul class="item-list">
+      <li>User submits address → API validates against assessment roll → creates a report job record</li>
+      <li>Stripe checkout completes → webhook triggers the ingestion queue</li>
+      <li>Queue worker retrieves deed from WRO (or fallback vendor) → stores raw PDF in Blob</li>
+      <li>OCR function reads PDF text → AI function extracts structured fields</li>
+      <li>Chain-of-title loop: each parsed deed provides a prior-deed reference → loop continues until no prior deed found</li>
+      <li>Report assembled from all parsed deeds → stored in Postgres → user notified by email</li>
+    </ul>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">Key technical decisions</p>
+
+  <div class="decision">
+    <div class="d-label">Rendering</div>
+    <div class="d-body">
+      <h4>App Router over Pages Router</h4>
+      <p>Server components reduce client bundle size. Streaming allows partial report delivery. Consistent with current Next.js direction.</p>
+    </div>
+  </div>
+  <div class="decision">
+    <div class="d-label">Background jobs</div>
+    <div class="d-body">
+      <h4>Vercel Queues (beta) over Inngest / external queue</h4>
+      <p>Keeps infrastructure on a single platform. Acceptable risk given the beta label — fallback is Inngest, which has similar DX. Deed retrieval must run async; a synchronous API route would time out.</p>
+    </div>
+  </div>
+  <div class="decision">
+    <div class="d-label">Database</div>
+    <div class="d-body">
+      <h4>Postgres over NoSQL</h4>
+      <p>Report data is relational (deeds, owners, encumbrances link to each other). Schema enforcement matters for a legal-adjacent product. Postgres via Vercel Marketplace removes operational overhead.</p>
+    </div>
+  </div>
+  <div class="decision">
+    <div class="d-label">OCR</div>
+    <div class="d-body">
+      <h4>External OCR API over self-hosted Tesseract</h4>
+      <p>Deed scans vary widely in quality. Cloud OCR (Google Document AI or AWS Textract) handles handwritten text, stamps, and low-contrast scans significantly better. Cost analysis in Phase 4.</p>
+    </div>
+  </div>
+  <div class="decision">
+    <div class="d-label">AI model</div>
+    <div class="d-body">
+      <h4>Claude (Anthropic) for deed parsing</h4>
+      <p>Strong structured-extraction performance on legal-style text. Tool-use / JSON mode produces reliable output schema. Cost modeled against per-report budget in Phase 4.</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">Observability &amp; reliability</p>
+  <div class="two-col">
+    <div class="card">
+      <h3>Monitoring</h3>
+      <ul class="item-list">
+        <li>Vercel built-in function logs and error tracking</li>
+        <li>Queue dead-letter alerts for failed deed retrievals</li>
+        <li>Report job status exposed to user via polling endpoint</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Failure handling</h3>
+      <ul class="item-list">
+        <li>WRO retrieval: 3 retries with exponential backoff, then fallback vendor</li>
+        <li>OCR failure: flag report as manual review required</li>
+        <li>Payment: Stripe idempotency keys prevent double-charges on retry</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="wrap">
+  <footer>
+    <strong>Knowsy · Discovery Phase · Phase 2</strong><br>
+    Mitimiti Estudio LLC · June 2026
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 3 Deliverables — Data Pipeline & Integration Planning</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f4f0;
+  --color-background-tertiary: #eeecea;
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #6b6b65;
+  --color-text-tertiary: #9c9a92;
+  --color-border-tertiary: rgba(0,0,0,.1);
+  --color-border-secondary: rgba(0,0,0,.18);
+  --border-radius-md: 8px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary: #1a1a18;
+    --color-background-secondary: #242420;
+    --color-background-tertiary: #2c2c2a;
+    --color-text-primary: #f0ede8;
+    --color-text-secondary: #9c9a92;
+    --color-text-tertiary: #6b6b65;
+    --color-border-tertiary: rgba(255,255,255,.08);
+    --color-border-secondary: rgba(255,255,255,.14);
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.6 var(--font-sans); color: var(--color-text-primary); background: var(--color-background-tertiary); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+nav { background: var(--color-background-primary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+.nav-inner { display: flex; align-items: center; gap: 12px; padding: 14px 0; font-size: 13px; }
+.back { display: flex; align-items: center; gap: 6px; color: var(--color-text-secondary); text-decoration: none; }
+.back:hover { color: var(--color-text-primary); }
+.nav-sep { color: var(--color-border-secondary); }
+.nav-title { color: var(--color-text-secondary); }
+header.hero { background: #111110; color: #fff; padding: 44px 0 40px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 10px; }
+header.hero h1 { margin: 0 0 10px; font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.3px; }
+header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-height: 1.6; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.chip { background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.16); padding: 4px 12px; border-radius: 999px; font-size: 12px; }
+.content { padding: 32px 0 64px; }
+.section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px; padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
+.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 500; }
+.card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.item-list { list-style: none; margin: 10px 0 0; padding: 0; }
+.item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 8px; align-items: flex-start; }
+.item-list li:last-child { border-bottom: none; }
+.item-list li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--color-text-tertiary); margin-top: 8px; }
+.vendor-row { display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 14px; }
+.vendor-row:last-child { border-bottom: none; }
+.vendor-name { font-weight: 500; }
+.vendor-desc { color: var(--color-text-secondary); font-size: 13px; }
+.badge { font-size: 11px; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.badge.rec { background: #E1F5EE; color: #0F6E56; border: 0.5px solid #9FE1CB; }
+.badge.alt { background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
+.badge.risk { background: #FAEEDA; color: #854F0B; border: 0.5px solid #FAC775; }
+@media (prefers-color-scheme: dark) {
+  .badge.rec { background: #04342C; color: #5DCAA5; border-color: #0F6E56; }
+  .badge.risk { background: #412402; color: #EF9F27; border-color: #633806; }
+}
+.flow-step { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.flow-step:last-child { border-bottom: none; }
+.step-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--color-background-tertiary); border: 0.5px solid #c9c4b8; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: #3a3730; }
+.step-body h4 { margin: 0 0 2px; font-size: 14px; font-weight: 500; }
+.step-body p { margin: 0; font-size: 13px; color: var(--color-text-secondary); }
+.spacer { margin-top: 28px; }
+footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
+@media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } .vendor-row { grid-template-columns: 1fr; gap: 4px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a class="back" href="discovery-plan.html"><i class="ti ti-arrow-left"></i> Discovery plan</a>
+      <span class="nav-sep">/</span>
+      <span class="nav-title">Phase 3 deliverables</span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Phase 3 · Week 2–3</p>
+    <h1>Data Pipeline &amp; Integration Planning</h1>
+    <p>Vendor evaluation for property data and deed retrieval, OCR and AI extraction workflow definition, and end-to-end pipeline map from address input to structured report output.</p>
+    <div class="meta-row">
+      <span class="chip">3 tasks</span>
+      <span class="chip">1 deliverable</span>
+      <span class="chip">Weeks 2–3</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap content">
+
+  <p class="section-label">Data sources &amp; vendor evaluation</p>
+  <div class="card">
+    <h3>Assessment roll — address to owner lookup</h3>
+    <div class="vendor-row">
+      <div class="vendor-name">Westchester County</div>
+      <div class="vendor-desc">Direct county assessment roll data. Free, updated annually. Accessed via county GIS portal.</div>
+      <span class="badge rec">Recommended</span>
+    </div>
+    <div class="vendor-row">
+      <div class="vendor-name">ATTOM Data</div>
+      <div class="vendor-desc">Aggregated property data API. Reliable, real-time, but adds per-call cost.</div>
+      <span class="badge alt">Fallback</span>
+    </div>
+    <div class="vendor-row">
+      <div class="vendor-name">Regrid</div>
+      <div class="vendor-desc">Parcel data coverage strong in NY. Good for normalized parcel IDs across counties.</div>
+      <span class="badge alt">Fallback</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:8px">
+    <h3>Deed retrieval — recorded documents</h3>
+    <div class="vendor-row">
+      <div class="vendor-name">WRO (direct)</div>
+      <div class="vendor-desc">Westchester Records Online. Free public portal. Primary path — automated login and document download.</div>
+      <span class="badge risk">Primary / risk</span>
+    </div>
+    <div class="vendor-row">
+      <div class="vendor-name">DataTrace</div>
+      <div class="vendor-desc">Enterprise title data provider. Full Westchester coverage, API-based. High cost per pull.</div>
+      <span class="badge alt">Fallback</span>
+    </div>
+    <div class="vendor-row">
+      <div class="vendor-name">PropLogix</div>
+      <div class="vendor-desc">Title search support vendor. Can retrieve WRO documents on demand. Human-in-the-loop — slower.</div>
+      <span class="badge alt">Manual fallback</span>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">OCR &amp; extraction workflow</p>
+  <div class="card">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>PDF download</h4><p>Deed image downloaded from WRO and stored in Vercel Blob. Original file preserved for audit trail.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>OCR (Google Document AI)</h4><p>Preferred OCR vendor. Handles variable scan quality, handwriting, and stamped text. Returns word-level confidence scores — used to flag low-confidence extractions for review.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>AI deed parsing (Claude)</h4><p>Structured extraction via tool-use: grantor, grantee, recorded date, consideration, legal description, encumbrances, prior deed book/page reference. Output is validated against a JSON schema before acceptance.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Prior-deed chaining</h4><p>The extracted prior-deed reference (book and page number) feeds back into the retrieval step. Loop continues until no prior reference is found or the records pre-date available digital archives (typically pre-1960).</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">5</div>
+      <div class="step-body"><h4>Report assembly</h4><p>All parsed deed records written to Postgres. Report generation job marks complete. User receives email with report link.</p></div>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">Pipeline monitoring</p>
+  <div class="two-col">
+    <div class="card">
+      <h3>Job state machine</h3>
+      <ul class="item-list">
+        <li>pending → queued → retrieving → ocr → parsing → complete</li>
+        <li>Any step can transition to: failed, needs_review</li>
+        <li>Status exposed to frontend via polling endpoint</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Failure modes tracked</h3>
+      <ul class="item-list">
+        <li>WRO login failure / CAPTCHA block</li>
+        <li>Document not found in archive</li>
+        <li>OCR confidence below threshold (70%)</li>
+        <li>AI extraction schema validation failure</li>
+        <li>Prior-deed loop exceeded max depth (20)</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="wrap">
+  <footer>
+    <strong>Knowsy · Discovery Phase · Phase 3</strong><br>
+    Mitimiti Estudio LLC · June 2026
+  </footer>
+</div>
+</body>
+</html>

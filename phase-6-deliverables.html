@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wrap-up Deliverables — Synthesis, Roadmap & Handoff</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f4f0;
+  --color-background-tertiary: #eeecea;
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #6b6b65;
+  --color-text-tertiary: #9c9a92;
+  --color-border-tertiary: rgba(0,0,0,.1);
+  --color-border-secondary: rgba(0,0,0,.18);
+  --border-radius-md: 8px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary: #1a1a18;
+    --color-background-secondary: #242420;
+    --color-background-tertiary: #2c2c2a;
+    --color-text-primary: #f0ede8;
+    --color-text-secondary: #9c9a92;
+    --color-text-tertiary: #6b6b65;
+    --color-border-tertiary: rgba(255,255,255,.08);
+    --color-border-secondary: rgba(255,255,255,.14);
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.6 var(--font-sans); color: var(--color-text-primary); background: var(--color-background-tertiary); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+nav { background: var(--color-background-primary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+.nav-inner { display: flex; align-items: center; gap: 12px; padding: 14px 0; font-size: 13px; }
+.back { display: flex; align-items: center; gap: 6px; color: var(--color-text-secondary); text-decoration: none; }
+.back:hover { color: var(--color-text-primary); }
+.nav-sep { color: var(--color-border-secondary); }
+.nav-title { color: var(--color-text-secondary); }
+header.hero { background: #111110; color: #fff; padding: 44px 0 40px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 10px; }
+header.hero h1 { margin: 0 0 10px; font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.3px; }
+header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-height: 1.6; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.chip { background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.16); padding: 4px 12px; border-radius: 999px; font-size: 12px; }
+.content { padding: 32px 0 64px; }
+.section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px; padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
+.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 500; }
+.card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.risk-row { padding: 13px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: start; }
+.risk-row:last-child { border-bottom: none; }
+.risk-title { font-size: 14px; font-weight: 500; }
+.risk-desc { font-size: 13px; color: var(--color-text-secondary); margin-top: 3px; }
+.badge { font-size: 11px; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.badge.high { background: #FAEEDA; color: #854F0B; border: 0.5px solid #FAC775; }
+.badge.med { background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
+.badge.low { background: #E1F5EE; color: #0F6E56; border: 0.5px solid #9FE1CB; }
+@media (prefers-color-scheme: dark) {
+  .badge.high { background: #412402; color: #EF9F27; border-color: #633806; }
+  .badge.low { background: #04342C; color: #5DCAA5; border-color: #0F6E56; }
+}
+.milestone { display: flex; gap: 16px; padding: 14px 0; border-bottom: 0.5px solid var(--color-border-tertiary); align-items: flex-start; }
+.milestone:last-child { border-bottom: none; }
+.m-week { flex-shrink: 0; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-tertiary); min-width: 70px; margin-top: 2px; }
+.m-body h4 { margin: 0 0 2px; font-size: 14px; font-weight: 500; }
+.m-body p { margin: 0; font-size: 13px; color: var(--color-text-secondary); }
+.final {
+  background: var(--color-text-primary); color: var(--color-background-primary);
+  border-radius: var(--border-radius-md); padding: 26px 26px 22px; margin: 28px 0 8px;
+}
+.final h3 { margin: 0 0 6px; font-size: 15px; font-weight: 500; }
+.final p { margin: 0 0 16px; opacity: .65; font-size: 13px; }
+.final-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.final-links a {
+  background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.14);
+  border-radius: var(--border-radius-md); padding: 10px 14px;
+  color: inherit; text-decoration: none; font-size: 13px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .15s;
+}
+.final-links a:hover { background: rgba(255,255,255,.14); }
+.spacer { margin-top: 28px; }
+footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
+@media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } .final-links { grid-template-columns: 1fr; } .risk-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a class="back" href="discovery-plan.html"><i class="ti ti-arrow-left"></i> Discovery plan</a>
+      <span class="nav-sep">/</span>
+      <span class="nav-title">Wrap-up deliverables</span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Wrap-up · Week 4</p>
+    <h1>Synthesis, Roadmap &amp; Handoff</h1>
+    <p>Technical risk register, implementation roadmap for the build phase, and the complete discovery package handed off to the engineering team.</p>
+    <div class="meta-row">
+      <span class="chip">3 tasks</span>
+      <span class="chip">2 deliverables</span>
+      <span class="chip">Week 4</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap content">
+
+  <p class="section-label">Technical risk register</p>
+  <div class="card">
+    <div class="risk-row">
+      <div>
+        <div class="risk-title">WRO automated access</div>
+        <div class="risk-desc">Westchester Records Online may block or rate-limit automated login and document retrieval. No published API; access via browser automation (Playwright). CAPTCHA is present on some flows.</div>
+      </div>
+      <span class="badge high">High</span>
+      <span style="font-size:12px; color:var(--color-text-tertiary); white-space:nowrap">P0</span>
+    </div>
+    <div class="risk-row">
+      <div>
+        <div class="risk-title">OCR quality on historical deeds</div>
+        <div class="risk-desc">Pre-1970 deeds are often typewritten on degraded paper. OCR confidence may drop below acceptable threshold, requiring manual review or re-scan. Volume of affected documents is unknown until tested at scale.</div>
+      </div>
+      <span class="badge high">High</span>
+      <span style="font-size:12px; color:var(--color-text-tertiary); white-space:nowrap">P1</span>
+    </div>
+    <div class="risk-row">
+      <div>
+        <div class="risk-title">AI extraction schema drift</div>
+        <div class="risk-desc">Deed language varies significantly across decades and attorneys. The Claude parsing prompt may need tuning for edge-case deed formats. A validation layer with human review fallback is required from day one.</div>
+      </div>
+      <span class="badge med">Medium</span>
+      <span style="font-size:12px; color:var(--color-text-tertiary); white-space:nowrap">P1</span>
+    </div>
+    <div class="risk-row">
+      <div>
+        <div class="risk-title">Prior-deed chain termination</div>
+        <div class="risk-desc">Digital records have a cutoff date (~1960 in WRO). The chain-walking loop must handle graceful termination and clearly communicate to users when the chain is incomplete.</div>
+      </div>
+      <span class="badge med">Medium</span>
+      <span style="font-size:12px; color:var(--color-text-tertiary); white-space:nowrap">P2</span>
+    </div>
+    <div class="risk-row">
+      <div>
+        <div class="risk-title">Assessment roll data freshness</div>
+        <div class="risk-desc">County assessment data is updated annually. Recent sales may not reflect the current owner of record. Report must include a data freshness disclaimer and date stamp.</div>
+      </div>
+      <span class="badge low">Low</span>
+      <span style="font-size:12px; color:var(--color-text-tertiary); white-space:nowrap">P3</span>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">Implementation roadmap</p>
+  <div class="card">
+    <div class="milestone">
+      <div class="m-week">Week 1–2</div>
+      <div class="m-body">
+        <h4>Foundation</h4>
+        <p>Monorepo setup, Next.js App Router scaffold, Postgres schema, Vercel project. Stripe integration and checkout flow. Address search with assessment roll integration. Basic auth (email magic link for admin).</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <div class="m-week">Week 3–4</div>
+      <div class="m-body">
+        <h4>Pipeline core</h4>
+        <p>WRO automation (Playwright). Queue-based job runner. OCR integration (Google Document AI). Claude deed parsing with schema validation. Job status endpoint and polling UI.</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <div class="m-week">Week 5</div>
+      <div class="m-body">
+        <h4>Chain walking &amp; report assembly</h4>
+        <p>Prior-deed chaining loop with max-depth guard. Report data model in Postgres. Report detail page rendering. PDF export. Email delivery.</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <div class="m-week">Week 6</div>
+      <div class="m-body">
+        <h4>Reliability &amp; QA</h4>
+        <p>Failure states, auto-refund trigger, dead-letter queue alerts. End-to-end test with 20 real Westchester addresses. Performance benchmarking. Security review (payment data, PII handling).</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <div class="m-week">Week 7</div>
+      <div class="m-body">
+        <h4>Beta launch</h4>
+        <p>Private beta with 5–10 invited users. Feedback collection. Bug triage. Pricing validation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="final">
+    <h3>Discovery package</h3>
+    <p>All deliverables produced during the Discovery Phase.</p>
+    <div class="final-links">
+      <a href="phase-1-deliverables.html">Product definition &amp; MVP scope <i class="ti ti-arrow-right"></i></a>
+      <a href="phase-2-deliverables.html">Technical architecture <i class="ti ti-arrow-right"></i></a>
+      <a href="phase-3-deliverables.html">Data pipeline &amp; API plan <i class="ti ti-arrow-right"></i></a>
+      <a href="phase-4-deliverables.html">Cost analysis <i class="ti ti-arrow-right"></i></a>
+      <a href="phase-5-deliverables.html">UX wireframes <i class="ti ti-arrow-right"></i></a>
+      <a href="knowsy-report-wireframe.html">Report detail wireframe <i class="ti ti-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+  <p class="section-label">Recommendation</p>
+  <div class="card">
+    <h3>Proceed to build phase</h3>
+    <p>All discovery objectives have been met. The technical architecture is validated, the data pipeline has a clear implementation path, costs are within acceptable margins, and the user journey is defined. The primary open risk (WRO automation) is addressed as the first engineering P0 — with a vendor fallback that preserves unit economics at a higher price point if automation is blocked.</p>
+    <p style="margin-top:10px">We recommend kicking off the build phase on the schedule above, starting with the foundation sprint.</p>
+  </div>
+
+</div>
+
+<div class="wrap">
+  <footer>
+    <strong>Knowsy · Discovery Phase · Wrap-up</strong><br>
+    Mitimiti Estudio LLC · June 2026
+  </footer>
+</div>
+</body>
+</html>

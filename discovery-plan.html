@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Phase — Knowsy</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f4f0;
+  --color-background-tertiary: #eeecea;
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #6b6b65;
+  --color-text-tertiary: #9c9a92;
+  --color-border-tertiary: rgba(0,0,0,.1);
+  --color-border-secondary: rgba(0,0,0,.18);
+  --color-border-primary: rgba(0,0,0,.3);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --teal-50: #E1F5EE; --teal-100: #9FE1CB; --teal-200: #5DCAA5; --teal-400: #1D9E75; --teal-600: #0F6E56;
+  --amber-50: #FAEEDA; --amber-100: #FAC775; --amber-200: #EF9F27; --amber-600: #854F0B;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary: #1a1a18;
+    --color-background-secondary: #242420;
+    --color-background-tertiary: #2c2c2a;
+    --color-text-primary: #f0ede8;
+    --color-text-secondary: #9c9a92;
+    --color-text-tertiary: #6b6b65;
+    --color-border-tertiary: rgba(255,255,255,.08);
+    --color-border-secondary: rgba(255,255,255,.14);
+    --color-border-primary: rgba(255,255,255,.24);
+    --teal-50: #04342C; --teal-100: #085041; --teal-200: #0F6E56; --teal-400: #1D9E75; --teal-600: #5DCAA5;
+    --amber-50: #412402; --amber-100: #633806; --amber-200: #854F0B; --amber-600: #EF9F27;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font: 15px/1.6 var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-background-tertiary);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+/* Hero */
+header.hero { background: #111110; color: #fff; padding: 48px 0 44px; }
+.eyebrow {
+  text-transform: uppercase; letter-spacing: .1em;
+  font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 8px;
+}
+header.hero h1 {
+  margin: 0 0 12px; font-size: 22px;
+  line-height: 1.2; font-weight: 500; letter-spacing: -.3px;
+}
+header.hero p { margin: 0; max-width: 600px; opacity: .75; font-size: 14px; line-height: 1.6; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.chip {
+  background: rgba(255,255,255,.08);
+  border: 0.5px solid rgba(255,255,255,.16);
+  padding: 5px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 400;
+}
+
+/* Summary bar */
+.summary {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  margin-top: -28px; padding: 20px 24px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+}
+.summary .stat { text-align: center; padding: 4px; }
+.summary .num { font-size: 22px; font-weight: 500; color: var(--color-text-primary); line-height: 1; }
+.summary .lbl { font-size: 11px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .08em; margin-top: 6px; }
+
+/* Executive summary */
+.exec-summary {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 20px 24px; margin-top: 16px;
+}
+.exec-summary .section-label {
+  font-size: 10px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 8px;
+}
+.exec-summary p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; }
+
+/* Deliverables grid */
+.deliverables-section { margin-top: 16px; }
+.deliverables-section .section-label {
+  font-size: 10px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 10px;
+}
+.deliverables-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+}
+.deliverable-item {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  text-decoration: none; color: var(--color-text-primary);
+  transition: border-color .15s;
+}
+.deliverable-item:hover { border-color: var(--color-border-secondary); }
+.deliverable-item .d-title { font-size: 13px; font-weight: 500; }
+.deliverable-item .d-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+.deliverable-item i { color: var(--color-text-tertiary); font-size: 14px; flex-shrink: 0; margin-left: 12px; }
+
+/* Section divider */
+.section-head {
+  display: flex; align-items: center; gap: 10px;
+  margin: 32px 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--color-border-secondary);
+}
+.section-head h2 { margin: 0; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-secondary); }
+
+/* Phase */
+.phase { margin: 0 0 8px; }
+.phase-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 0 10px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  margin-bottom: 8px;
+}
+.phase-num {
+  font-size: 11px; font-weight: 500; color: #3a3730;
+  background: var(--color-background-tertiary); border-radius: var(--border-radius-md);
+  padding: 3px 9px; white-space: nowrap; border: 0.5px solid #c9c4b8;
+}
+.phase-head h3 { margin: 0; font-size: 15px; font-weight: 500; flex: 1; }
+.phase-when { font-size: 12px; color: var(--color-text-tertiary); white-space: nowrap; }
+.phase-link {
+  font-size: 12px; font-weight: 500; color: #3a3730;
+  text-decoration: none; white-space: nowrap;
+  background: var(--color-background-tertiary); border-radius: 999px; padding: 4px 11px;
+  border: 0.5px solid #c9c4b8; transition: background .15s;
+}
+.phase-link:hover { background: #e8e3d8; }
+
+/* Task card */
+.task {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  margin-top: 8px; padding: 14px 18px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.task-status {
+  flex-shrink: 0; margin-top: 2px;
+  width: 18px; height: 18px; border-radius: 5px;
+  border: 1.5px solid var(--color-border-primary);
+  background: transparent; position: relative;
+}
+.task-status.done {
+  background: var(--color-text-primary); border-color: var(--color-text-primary);
+}
+.task-status.done::after {
+  content: ""; position: absolute;
+  left: 4px; top: 1px; width: 4px; height: 8px;
+  border: solid #fff; border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+.task-status.wip { background: var(--color-background-secondary); border-color: var(--color-border-primary); }
+.task-status.wip::after {
+  content: ""; position: absolute;
+  left: 2px; top: 2px; width: 10px; height: 10px;
+  border-radius: 2px; background: var(--color-text-tertiary);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.task-body { flex: 1; }
+.task-title {
+  font-size: 14px; font-weight: 500; margin: 0;
+  color: var(--color-text-primary);
+}
+.task.is-done .task-title { color: var(--color-text-tertiary); text-decoration: line-through; text-decoration-color: var(--color-border-primary); }
+.task-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+.tag {
+  font-size: 11px; padding: 2px 9px; border-radius: 999px; font-weight: 400;
+  background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8;
+}
+
+/* Final block */
+.final {
+  background: var(--color-text-primary); color: var(--color-background-primary);
+  border-radius: var(--border-radius-md);
+  padding: 28px 28px 24px; margin: 32px 0 24px;
+}
+.final h3 { margin: 0 0 6px; font-size: 15px; font-weight: 500; }
+.final p { margin: 0 0 16px; opacity: .65; font-size: 13px; }
+.final-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.final-grid div {
+  background: rgba(255,255,255,.08);
+  border: 0.5px solid rgba(255,255,255,.14);
+  border-radius: var(--border-radius-md);
+  padding: 10px 14px; font-size: 13px; font-weight: 400;
+}
+
+footer {
+  text-align: center; color: var(--color-text-tertiary);
+  font-size: 12px; padding: 28px 0 48px; line-height: 1.7;
+  border-top: 0.5px solid var(--color-border-tertiary);
+}
+footer strong { color: var(--color-text-secondary); font-weight: 500; }
+
+@media (max-width: 640px) {
+  header.hero h1 { font-size: 20px; }
+  .summary { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .final-grid { grid-template-columns: 1fr; }
+  .deliverables-grid { grid-template-columns: 1fr; }
+  .phase-head { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Knowsy · Mitimiti Studio</p>
+    <h1>Discovery Phase — Final Report</h1>
+    <p>A complete record of the technical and product work completed during the discovery phase, including architecture decisions, data pipeline design, cost analysis, and UX wireframes.</p>
+    <div class="meta-row">
+      <span class="chip">Completed June 2026</span>
+      <span class="chip">5 phases</span>
+      <span class="chip">7 deliverables</span>
+      <span class="chip">Recommendation: proceed to build</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="summary">
+    <div class="stat"><div class="num">5</div><div class="lbl">Phases</div></div>
+    <div class="stat"><div class="num">22</div><div class="lbl">Tasks</div></div>
+    <div class="stat"><div class="num">7</div><div class="lbl">Deliverables</div></div>
+    <div class="stat"><div class="num">4</div><div class="lbl">Weeks</div></div>
+  </div>
+
+  <!-- Executive summary -->
+  <div class="exec-summary">
+    <p class="section-label">Executive summary</p>
+    <p>The Discovery Phase is complete. We validated the core product concept, established a technical architecture built on Next.js and Vercel, and identified a recommended vendor stack for property data ingestion. The OCR and deed-extraction workflow has a clear implementation path. Wireframes were developed for the marketing landing page and the report detail page. The findings confirm the MVP is buildable. The primary risk — automating access to Westchester County land records via WRO — was mitigated by building a quick prototype that successfully extracted deed data, confirming the approach is viable. We recommend proceeding to the build phase.</p>
+  </div>
+
+  <!-- Final deliverables -->
+  <div class="deliverables-section" style="margin-top:24px">
+    <p class="section-label">Final deliverables</p>
+    <div class="deliverables-grid">
+      <a class="deliverable-item" href="phase-1-deliverables.html">
+        <div><div class="d-title">Product definition &amp; MVP scope</div><div class="d-sub">Phase 1 · Stakeholder alignment</div></div>
+        <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="deliverable-item" href="phase-2-deliverables.html">
+        <div><div class="d-title">Technical architecture overview</div><div class="d-sub">Phase 2 · Architecture definition</div></div>
+        <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="deliverable-item" href="phase-3-deliverables.html">
+        <div><div class="d-title">Data pipeline &amp; API plan</div><div class="d-sub">Phase 3 · Integration planning</div></div>
+        <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="deliverable-item" href="phase-4-deliverables.html">
+        <div><div class="d-title">API budget &amp; cost estimates</div><div class="d-sub">Phase 4 · Cost analysis</div></div>
+        <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="deliverable-item" href="phase-5-deliverables.html">
+        <div><div class="d-title">UX wireframes</div><div class="d-sub">Phase 5 · Product definition</div></div>
+        <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="deliverable-item" href="phase-6-deliverables.html">
+        <div><div class="d-title">Implementation roadmap</div><div class="d-sub">Wrap-up · Synthesis &amp; handoff</div></div>
+        <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Phase breakdown -->
+  <div class="section-head" style="margin-top:40px">
+    <h2>Phase breakdown</h2>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 1</span>
+      <h3>Stakeholder &amp; product alignment</h3>
+      <span class="phase-when">Week 1</span>
+      <a class="phase-link" href="phase-1-deliverables.html">Deliverables →</a>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">1.1 — Kickoff &amp; run discovery workshops</p>
+        <div class="task-meta"><span class="tag">SoW §1</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">1.2 — Define MVP scope &amp; prioritize features</p>
+        <div class="task-meta"><span class="tag">SoW §1</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">1.3 — Log open questions &amp; assumptions</p>
+        <div class="task-meta"><span class="tag">SoW §1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 2</span>
+      <h3>Technical architecture definition</h3>
+      <span class="phase-when">Week 1–2</span>
+      <a class="phase-link" href="phase-2-deliverables.html">Deliverables →</a>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">2.1 — Recommend frontend &amp; backend architecture</p>
+        <div class="task-meta"><span class="tag">SoW §2</span><span class="tag">After 1.2</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">2.2 — Design data storage &amp; report generation flow</p>
+        <div class="task-meta"><span class="tag">SoW §2</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">2.3 — Plan infrastructure, scalability &amp; observability</p>
+        <div class="task-meta"><span class="tag">SoW §2</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 3</span>
+      <h3>Data pipeline &amp; integration planning</h3>
+      <span class="phase-when">Week 2–3</span>
+      <a class="phase-link" href="phase-3-deliverables.html">Deliverables →</a>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">3.1 — Identify data sources &amp; evaluate vendors</p>
+        <div class="task-meta"><span class="tag">SoW §3</span><span class="tag">After 2.x</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">3.2 — Define OCR &amp; deed extraction workflow</p>
+        <div class="task-meta"><span class="tag">SoW §3</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">3.3 — Map ingestion, monitoring &amp; end-to-end flow</p>
+        <div class="task-meta"><span class="tag">SoW §3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 4</span>
+      <h3>API &amp; infrastructure cost analysis</h3>
+      <span class="phase-when">Week 3</span>
+      <a class="phase-link" href="phase-4-deliverables.html">Deliverables →</a>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">4.1 — Analyze API &amp; AI/OCR processing pricing</p>
+        <div class="task-meta"><span class="tag">SoW §4</span><span class="tag">After 3.1</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">4.2 — Estimate hosting, storage &amp; scaling costs</p>
+        <div class="task-meta"><span class="tag">SoW §4</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 5</span>
+      <h3>Product definition &amp; UX wireframes</h3>
+      <span class="phase-when">Week 3–4</span>
+      <a class="phase-link" href="phase-5-deliverables.html">Deliverables →</a>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">5.1 — Wireframe address search &amp; checkout flows</p>
+        <div class="task-meta"><span class="tag">SoW §5</span><span class="tag">After 1.2</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">5.2 — Wireframe report generation &amp; detail experience</p>
+        <div class="task-meta"><span class="tag">SoW §5</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WRAP-UP -->
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Wrap-up</span>
+      <h3>Synthesis, roadmap &amp; handoff</h3>
+      <span class="phase-when">Week 4</span>
+      <a class="phase-link" href="phase-6-deliverables.html">Deliverables →</a>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">6.1 — Validate technical risks &amp; dependencies</p>
+        <div class="task-meta"><span class="tag">Objectives</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">6.2 — Produce implementation roadmap</p>
+        <div class="task-meta"><span class="tag">Scope</span></div>
+      </div>
+    </div>
+    <div class="task is-done">
+      <div class="task-status done"></div>
+      <div class="task-body">
+        <p class="task-title">6.3 — Compile &amp; present final deliverables</p>
+        <div class="task-meta"><span class="tag">Final deliverables</span></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer>
+    <strong>Mitimiti Estudio LLC</strong><br>
+    POBOX 9020853, San Juan, Puerto Rico 00902 · hola@mitimitiestudio.com
+  </footer>
+
+</div>
+</body>
+</html>
