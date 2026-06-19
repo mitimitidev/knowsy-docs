@@ -307,26 +307,9 @@ footer strong { color: var(--color-text-secondary); font-weight: 500; }
     <p style="margin-top:10px"><span class="num">Edge case 3 — similar but different addresses</span> (e.g. 12 vs 21 Elm St). The address search on the home page needs a confirmation step — show the matched address and ask "is this the right property?" before the modal triggers. This is a UX pattern, not just an error state.</p>
   </div>
 
-  <!-- DOUBTS -->
+  <!-- MARKET SCOPE + TIMELINE -->
   <div class="spacer"></div>
-  <p class="section-label">Open questions</p>
-  <div class="callout doubt">
-    <h4>Doubts</h4>
-    <p>Do we need an address validation mechanism for MVP?</p>
-  </div>
-
-  <!-- TECH + TIMELINE -->
-  <div class="spacer"></div>
-  <p class="section-label">Technical approach &amp; constraints</p>
-  <div class="card">
-    <h3>Approach</h3>
-    <ul class="item-list">
-      <li>The core MVP focuses on the most challenging feature: <strong>deed scraping and document analysis</strong>. Low-hanging-fruit data (Zillow-type metrics) can be added easily and shouldn't consume development time.</li>
-      <li>Claude AI is used to prototype document scanning and data-extraction workflows; the AI agent follows a breadcrumb trail through documents using LIBER citations to compile a complete property history.</li>
-      <li>Browser-automation agents replicate manual county-website navigation. Third-party title-plant companies (First American, DataTrace, ATTOM) have proprietary databases but are too expensive for the MVP phase.</li>
-      <li>Two potential workflows: pre-scraping all new listings for instant reports, vs. on-demand scraping (10+ minute generation time).</li>
-    </ul>
-  </div>
+  <p class="section-label">Market scope &amp; timeline</p>
   <div class="card">
     <h3>Initial geographic focus</h3>
     <p>Counties with high sales volume and accessible public data:</p>
@@ -362,7 +345,7 @@ footer strong { color: var(--color-text-secondary); font-weight: 500; }
       <li>Product vision, target market &amp; positioning</li>
       <li>Report contents — data categories &amp; public data sources</li>
       <li>MVP site map (homepage, preview modal, Stripe checkout, confirmation &amp; failure states, transactional emails, report detail, admin dashboard)</li>
-      <li>Key product decisions, edge cases &amp; open questions log</li>
+      <li>Key product decisions &amp; edge cases</li>
     </ul>
   </div>
 
