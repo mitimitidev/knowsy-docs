@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phase 1 Deliverables — Stakeholder & Product Alignment</title>
+<title>Phase 1 Deliverables — Product Definition</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 :root {
@@ -16,8 +16,8 @@
   --color-border-tertiary: rgba(0,0,0,.1);
   --color-border-secondary: rgba(0,0,0,.18);
   --border-radius-md: 8px;
-  --border-radius-lg: 12px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -32,114 +32,73 @@
   }
 }
 *, *::before, *::after { box-sizing: border-box; }
-body {
-  margin: 0;
-  font: 15px/1.6 var(--font-sans);
-  color: var(--color-text-primary);
-  background: var(--color-background-tertiary);
-  -webkit-font-smoothing: antialiased;
-}
+body { margin: 0; font: 15px/1.6 var(--font-sans); color: var(--color-text-primary); background: var(--color-background-tertiary); -webkit-font-smoothing: antialiased; }
 .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
-
-nav {
-  background: var(--color-background-primary);
-  border-bottom: 0.5px solid var(--color-border-tertiary);
-  padding: 0;
-}
-.nav-inner {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 0; font-size: 13px;
-}
-.back {
-  display: flex; align-items: center; gap: 6px;
-  color: var(--color-text-secondary); text-decoration: none;
-  font-weight: 400;
-}
+nav { background: var(--color-background-primary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+.nav-inner { display: flex; align-items: center; gap: 12px; padding: 14px 0; font-size: 13px; }
+.back { display: flex; align-items: center; gap: 6px; color: var(--color-text-secondary); text-decoration: none; }
 .back:hover { color: var(--color-text-primary); }
 .nav-sep { color: var(--color-border-secondary); }
 .nav-title { color: var(--color-text-secondary); }
-
 header.hero { background: #111110; color: #fff; padding: 44px 0 40px; }
-.eyebrow {
-  text-transform: uppercase; letter-spacing: .12em;
-  font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 10px;
-}
-header.hero h1 {
-  margin: 0 0 10px; font-size: 22px;
-  line-height: 1.2; font-weight: 500; letter-spacing: -.3px;
-}
-header.hero p { margin: 0; max-width: 560px; opacity: .7; font-size: 14px; line-height: 1.6; }
+.eyebrow { text-transform: uppercase; letter-spacing: .1em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 8px; }
+header.hero h1 { margin: 0 0 10px; font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.3px; }
+header.hero p { margin: 0; max-width: 580px; opacity: .7; font-size: 14px; line-height: 1.6; }
 .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.chip {
-  background: rgba(255,255,255,.08);
-  border: 0.5px solid rgba(255,255,255,.16);
-  padding: 4px 12px; border-radius: 999px;
-  font-size: 12px;
-}
-
+.chip { background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.16); padding: 4px 12px; border-radius: 999px; font-size: 12px; }
 .content { padding: 32px 0 64px; }
-
-.section-label {
-  font-size: 10px; font-weight: 500; text-transform: uppercase;
-  letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px;
-  padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary);
-}
-
-.card {
-  background: var(--color-background-primary);
-  border: 0.5px solid var(--color-border-tertiary);
-  border-radius: var(--border-radius-md);
-  padding: 20px 22px; margin-bottom: 8px;
-}
-.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 500; }
+.section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--color-text-tertiary); margin: 0 0 12px; padding-bottom: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
+.card h3 { margin: 0 0 8px; font-size: 15px; font-weight: 500; }
 .card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
-.card + .card { }
-
+.card p + p { margin-top: 8px; }
+.card p strong, .card li strong { color: var(--color-text-primary); font-weight: 500; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-
-.tag {
-  display: inline-block;
-  font-size: 11px; padding: 2px 9px; border-radius: 999px;
-  background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8;
-  margin-right: 4px; margin-top: 10px;
-}
-
-.item-list { list-style: none; margin: 10px 0 0; padding: 0; }
-.item-list li {
-  font-size: 14px; color: var(--color-text-secondary);
-  padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary);
-  display: flex; gap: 8px; align-items: flex-start;
-}
+code { font-family: var(--font-mono); font-size: 12.5px; background: var(--color-background-tertiary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; padding: 1px 5px; color: var(--color-text-primary); }
+em { font-style: italic; }
+.item-list { list-style: none; margin: 0; padding: 0; }
+.item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
 .item-list li:last-child { border-bottom: none; }
-.item-list li::before {
-  content: ""; flex-shrink: 0;
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--color-text-tertiary); margin-top: 8px;
-}
-
-.flag {
-  background: #FAEEDA; color: #854F0B;
-  border: 0.5px solid #FAC775;
-  border-radius: var(--border-radius-md);
-  padding: 14px 18px; margin-bottom: 8px;
-  font-size: 14px; line-height: 1.6;
-}
-.flag strong { font-weight: 500; display: block; margin-bottom: 2px; }
+.item-list li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--color-text-tertiary); margin-top: 8px; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.pill { font-size: 12px; padding: 4px 11px; border-radius: 999px; background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
+@media (prefers-color-scheme: dark) { .pill { color: #d8d2c4; background: #2c2c2a; border-color: rgba(255,255,255,.14); } }
+/* sitemap flow */
+.flow { margin-bottom: 8px; }
+.screen { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 14px 18px; }
+.screen-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.screen-head h4 { margin: 0; font-size: 14px; font-weight: 500; }
+.screen-head .route { font-family: var(--font-mono); font-size: 11.5px; color: var(--color-text-tertiary); }
+.screen p { margin: 4px 0 0; font-size: 13px; color: var(--color-text-secondary); }
+.screen-row { display: flex; gap: 8px; align-items: stretch; }
+.screen-row .screen { flex: 1; }
+.branch { border-style: dashed !important; }
+.branch .tag-async { display: inline-block; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: #854F0B; background: #FAEEDA; border: 0.5px solid #FAC775; border-radius: 999px; padding: 1px 7px; margin-left: 4px; vertical-align: middle; }
+@media (prefers-color-scheme: dark) { .branch .tag-async { color: #EF9F27; background: #412402; border-color: #633806; } }
+.arrow-v { text-align: center; color: var(--color-text-tertiary); font-size: 15px; padding: 6px 0; }
+.legend { font-size: 12px; color: var(--color-text-tertiary); margin-top: 12px; font-style: italic; }
+/* annotation callouts */
+.callout { border-radius: var(--border-radius-md); padding: 16px 18px; margin-bottom: 8px; font-size: 13.5px; line-height: 1.6; }
+.callout h4 { margin: 0 0 8px; font-size: 13px; font-weight: 600; }
+.callout.key { background: #FAEEDA; color: #6b4a12; border: 0.5px solid #FAC775; }
+.callout.edge { background: #E6F1FB; color: #1a3a5c; border: 0.5px solid #B5D4F4; }
+.callout.doubt { background: #FBE6E2; color: #7a2e22; border: 0.5px solid #F4B5AA; }
+.callout ul { margin: 0; padding-left: 18px; }
+.callout li { margin: 6px 0; }
+.callout .num { font-weight: 600; }
 @media (prefers-color-scheme: dark) {
-  .flag { background: #412402; color: #EF9F27; border-color: #633806; }
+  .callout.key { background: #2e2410; color: #f0c884; border-color: #5c4716; }
+  .callout.edge { background: #11243a; color: #aecdf0; border-color: #1d3a5c; }
+  .callout.doubt { background: #3a1813; color: #f0b0a4; border-color: #5c2a22; }
 }
-
+.checklist { list-style: none; margin: 4px 0 0; padding: 0; }
+.checklist li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; align-items: center; line-height: 1.5; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: "✓"; color: var(--color-text-primary); font-weight: 500; font-size: 13px; flex-shrink: 0; }
 .spacer { margin-top: 28px; }
-
-footer {
-  text-align: center; color: var(--color-text-tertiary);
-  font-size: 12px; padding: 24px 0 48px;
-  border-top: 0.5px solid var(--color-border-tertiary);
-}
-
-@media (max-width: 620px) {
-  .two-col { grid-template-columns: 1fr; }
-}
+footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
+footer strong { color: var(--color-text-secondary); font-weight: 500; }
+@media (max-width: 620px) { .two-col, .screen-row { grid-template-columns: 1fr; flex-direction: column; } }
 </style>
 </head>
 <body>
@@ -157,81 +116,253 @@ footer {
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">Phase 1 · Week 1</p>
-    <h1>Stakeholder &amp; Product Alignment</h1>
-    <p>Workshops to align stakeholders on the product vision, define the MVP scope, establish success metrics, and surface open questions before engineering work begins.</p>
+    <h1>Product Definition</h1>
+    <p>The product vision, target market, what a Knowsy report contains, the MVP site map, and the key product decisions, edge cases, and open questions surfaced during stakeholder alignment.</p>
     <div class="meta-row">
-      <span class="chip">3 tasks</span>
-      <span class="chip">2 deliverables</span>
-      <span class="chip">Week 1</span>
+      <span class="chip">Stakeholder &amp; product alignment</span>
+      <span class="chip">$40 / report</span>
+      <span class="chip">MVP target: end of May</span>
     </div>
   </div>
 </header>
 
 <div class="wrap content">
 
-  <p class="section-label">Deliverable 1 — Product definition document</p>
+  <!-- VISION -->
+  <p class="section-label">Product vision</p>
   <div class="card">
-    <h3>Product vision</h3>
-    <p>Knowsy is a consumer-facing web app that generates automated property title reports for Westchester County real estate. A buyer enters a street address, pays a flat fee, and receives a structured report containing the chain of ownership, recorded encumbrances, and AI-extracted red flags — without needing to hire a title company for preliminary research.</p>
+    <h3>Knowsy — "Carfax for homes"</h3>
+    <p>Knowsy is a home-buying research platform that aggregates public data to create comprehensive property reports for homebuyers. The concept is similar to Carfax for homes — providing detailed information <strong>before making an offer, not after closing</strong>.</p>
+    <p>The platform aims to be the single source for all neighborhood and property information, eliminating the need to leave the platform.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Target market</h3>
+      <p>Millennial / zillennial homebuyers who want a modern, engaging UI rather than sterile, investor-focused reports.</p>
+    </div>
+    <div class="card">
+      <h3>Differentiation</h3>
+      <p>Consumer-focused design and a storytelling approach to data presentation — not a spreadsheet of metrics.</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Pricing</h3>
+      <p><strong>$40 per report.</strong> Stripe collects the email at checkout — no separate sign-up form needed.</p>
+    </div>
+    <div class="card">
+      <h3>Positioning</h3>
+      <p>Not competing with property-search platforms like Zillow — this is a <strong>post-selection verification tool</strong>, used once a buyer has a property in mind.</p>
+    </div>
+  </div>
+
+  <!-- WHAT'S IN A REPORT -->
+  <div class="spacer"></div>
+  <p class="section-label">What a report contains</p>
+  <div class="card">
+    <h3>Data categories</h3>
+    <div class="pill-row">
+      <span class="pill">Property summary</span>
+      <span class="pill">Transactional data</span>
+      <span class="pill">Owner history</span>
+      <span class="pill">Town information</span>
+      <span class="pill">Historical documents</span>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Public data sources</h3>
+    <div class="pill-row">
+      <span class="pill">Tax history</span>
+      <span class="pill">School ratings</span>
+      <span class="pill">Walkability scores</span>
+      <span class="pill">Water quality (EPA)</span>
+      <span class="pill">HOA documents</span>
+      <span class="pill">Demographic data</span>
+      <span class="pill">Political orientation</span>
+      <span class="pill">Flood zones (FEMA)</span>
+      <span class="pill">Social sentiment (Reddit)</span>
+      <span class="pill">Top / worst restaurants &amp; parks</span>
+      <span class="pill">Noise pollution (HowLoud)</span>
+      <span class="pill">Town meeting minutes</span>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Historical deed documents</h3>
+    <p>Historical deed documents dating back to <strong>1913</strong> are scanned using AI to identify potential issues like shared driveways, utility easements, or estate ownership that could complicate closing. County assessment rolls provide neighbor information — for example, the Westchester County assessment roll is 64,000 pages.</p>
+  </div>
+
+  <!-- SITE MAP -->
+  <div class="spacer"></div>
+  <p class="section-label">MVP site map</p>
+  <div class="card">
+    <p>The product experience is intentionally simple: a search input for an address, then a comprehensive report. The MVP is divided into the screens below.</p>
+  </div>
+
+  <div class="flow">
+    <div class="screen">
+      <div class="screen-head"><h4>Homepage</h4><span class="route">Marketing site</span></div>
+      <p>Hero · Address search + CTA to generate a report. Focuses on examples of discoveries and what users might uncover to drive engagement. Footer links: Privacy Policy · Terms &amp; Condition.</p>
+    </div>
+    <div class="arrow-v">↓</div>
+
+    <div class="screen-row">
+      <div class="screen">
+        <div class="screen-head"><h4>Preview Modal</h4></div>
+        <p>What you'll get + Pricing + CTA to pay.</p>
+      </div>
+      <div class="screen branch" style="flex:0 0 38%">
+        <div class="screen-head"><h4>Address not found</h4><span class="tag-async">branch</span></div>
+        <p>Try another address.</p>
+      </div>
+    </div>
+    <div class="arrow-v">↓</div>
+
+    <div class="screen-row">
+      <div class="screen">
+        <div class="screen-head"><h4>Stripe Checkout</h4></div>
+        <p>Hosted checkout · Email collection.</p>
+      </div>
+      <div class="screen branch" style="flex:0 0 38%">
+        <div class="screen-head"><h4>Payment Failed</h4><span class="tag-async">branch</span></div>
+        <p>Try again.</p>
+      </div>
+    </div>
+    <div class="arrow-v">↓</div>
+
+    <div class="screen">
+      <div class="screen-head"><h4>Order Confirmation</h4></div>
+      <p>Report generating… The confirmation page can poll for readiness or just say "check your email".</p>
+    </div>
+    <div class="arrow-v">↓</div>
+
+    <div class="screen">
+      <div class="screen-head"><h4>Report Generation</h4></div>
+      <p>Report generating… (async pipeline).</p>
+    </div>
+    <div class="arrow-v">↓</div>
+
+    <div class="screen-row">
+      <div class="screen">
+        <div class="screen-head"><h4>Email — Report Ready</h4><span class="tag-async">transactional</span></div>
+        <p>Link to report page.</p>
+      </div>
+      <div class="screen branch" style="flex:0 0 38%">
+        <div class="screen-head"><h4>Generation Failed</h4><span class="tag-async">branch</span></div>
+        <p>Email fallback · Refund or contact us.</p>
+      </div>
+    </div>
+    <div class="arrow-v">↓</div>
+
+    <div class="screen-row">
+      <div class="screen branch">
+        <div class="screen-head"><h4>Link Expired</h4><span class="tag-async">after 1 day</span></div>
+        <p>Regenerate link.</p>
+      </div>
+      <div class="screen branch">
+        <div class="screen-head"><h4>New Link Sent</h4></div>
+        <p>Link sent via email.</p>
+      </div>
+    </div>
+    <div class="arrow-v">↓</div>
+
+    <div class="screen">
+      <div class="screen-head"><h4>Report Detail</h4><span class="route">Unique URL via email</span></div>
+      <p>The report page lives at a unique, unguessable URL — no login required to view.</p>
+    </div>
+
+    <p class="legend">Solid lines = happy path · Dashed lines = async or error branch.</p>
+  </div>
+
+  <!-- ADMIN -->
+  <div class="card">
+    <div class="screen-head" style="margin-bottom:8px"><h3 style="margin:0">Admin Dashboard</h3><span class="route">/admin</span></div>
+    <ul class="item-list">
+      <li>Address of report</li>
+      <li>Email of user that generated the report</li>
+      <li>Payment confirmation &amp; link</li>
+      <li>Basic telemetrics / how long did it take</li>
+      <li>Was the report viewed or not?</li>
+    </ul>
+  </div>
+
+  <!-- KEY DECISIONS -->
+  <div class="spacer"></div>
+  <p class="section-label">Key product decisions</p>
+  <div class="callout key">
+    <ul>
+      <li>Report page lives at a unique, unguessable URL (no login required to view).</li>
+      <li>Stripe collects email at checkout — no separate sign-up form needed.</li>
+      <li>Confirmation page can poll for readiness or just say "check your email".</li>
+    </ul>
+  </div>
+
+  <!-- EDGE CASES -->
+  <div class="spacer"></div>
+  <p class="section-label">Edge cases to resolve</p>
+  <div class="callout edge">
+    <p><span class="num">Edge case 1 — same address searched again.</span> Do they pay again and get a fresh report, get the cached one for free, or get a discounted re-run? This affects both the UX (do you show "report already exists" before checkout?) and the pipeline (do you cache reports or always regenerate?).</p>
+    <p style="margin-top:10px"><span class="num">Edge case 2 — wrong address, already paid.</span> There's no refund or correction flow anywhere in the sitemap. This needs either a grace period on the confirmation page ("wrong address? fix it before we generate") or a support contact path. Without it, this becomes a customer-service problem on day one.</p>
+    <p style="margin-top:10px"><span class="num">Edge case 3 — similar but different addresses</span> (e.g. 12 vs 21 Elm St). The address search on the home page needs a confirmation step — show the matched address and ask "is this the right property?" before the modal triggers. This is a UX pattern, not just an error state.</p>
+  </div>
+
+  <!-- DOUBTS -->
+  <div class="spacer"></div>
+  <p class="section-label">Open questions</p>
+  <div class="callout doubt">
+    <h4>Doubts</h4>
+    <p>Do we need an address validation mechanism for MVP?</p>
+  </div>
+
+  <!-- TECH + TIMELINE -->
+  <div class="spacer"></div>
+  <p class="section-label">Technical approach &amp; constraints</p>
+  <div class="card">
+    <h3>Approach</h3>
+    <ul class="item-list">
+      <li>The core MVP focuses on the most challenging feature: <strong>deed scraping and document analysis</strong>. Low-hanging-fruit data (Zillow-type metrics) can be added easily and shouldn't consume development time.</li>
+      <li>Claude AI is used to prototype document scanning and data-extraction workflows; the AI agent follows a breadcrumb trail through documents using LIBER citations to compile a complete property history.</li>
+      <li>Browser-automation agents replicate manual county-website navigation. Third-party title-plant companies (First American, DataTrace, ATTOM) have proprietary databases but are too expensive for the MVP phase.</li>
+      <li>Two potential workflows: pre-scraping all new listings for instant reports, vs. on-demand scraping (10+ minute generation time).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Initial geographic focus</h3>
+    <p>Counties with high sales volume and accessible public data:</p>
+    <div class="pill-row">
+      <span class="pill">Westchester County</span>
+      <span class="pill">NYC</span>
+      <span class="pill">Bergen County</span>
+      <span class="pill">Maricopa (AZ)</span>
+      <span class="pill">Texas counties</span>
+      <span class="pill">Florida</span>
+      <span class="pill">Las Vegas</span>
+      <span class="pill">Orange County</span>
+      <span class="pill">Seattle / Kings County</span>
+    </div>
+    <p style="margin-top:10px">Data accessibility varies by county — some require subscriptions (Westchester is $1,200/year), while others have free public access.</p>
   </div>
   <div class="two-col">
     <div class="card">
-      <h3>Primary user</h3>
-      <p>Home buyers and real estate agents doing pre-purchase due diligence on residential properties in Westchester County, NY.</p>
+      <h3>Timeline</h3>
+      <p>Revised MVP target: <strong>end of May</strong> (original end-of-April target no longer feasible). Budget is limited — the goal is to identify the true MVP scope to make the project financially viable, and to test market fit before investing heavily.</p>
     </div>
     <div class="card">
-      <h3>Core value proposition</h3>
-      <p>Get the key facts about a property's ownership history in minutes, not days — at a fraction of the cost of a full title search.</p>
+      <h3>Potential pivot</h3>
+      <p>If consumer adoption is slow, Knowsy could target <strong>real estate agents</strong> who need reports for their listings.</p>
     </div>
   </div>
 
+  <!-- DELIVERABLES -->
   <div class="spacer"></div>
-  <p class="section-label">Deliverable 2 — MVP scope &amp; priorities</p>
+  <p class="section-label">Deliverables</p>
   <div class="card">
-    <h3>In scope — MVP</h3>
-    <ul class="item-list">
-      <li>Address search and property lookup via Westchester assessment roll</li>
-      <li>Automated WRO deed retrieval for current owner</li>
-      <li>OCR extraction and AI parsing of deed text</li>
-      <li>Chain of title reconstruction (walk back through prior deeds)</li>
-      <li>Structured report: ownership timeline, encumbrances, flags</li>
-      <li>Stripe checkout — flat-fee per report</li>
-      <li>Email delivery of completed report (PDF or web link)</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Out of scope — post-MVP</h3>
-    <ul class="item-list">
-      <li>Counties outside Westchester</li>
-      <li>Commercial property</li>
-      <li>Lien searches beyond what is in recorded deeds</li>
-      <li>Attorney review or professional certification</li>
-      <li>User accounts / report history</li>
-    </ul>
-  </div>
-
-  <div class="spacer"></div>
-  <p class="section-label">Open questions &amp; assumptions log</p>
-  <div class="flag">
-    <strong>WRO access policy</strong>
-    The Westchester Records Online portal may throttle or block automated access. The mitigation plan (Phase 3) covers alternative ingestion paths — including vendor APIs and bulk data licensing.
-  </div>
-  <div class="flag">
-    <strong>Assumption: single county for MVP</strong>
-    We are scoping to Westchester County only. Expanding to additional counties (Nassau, Suffolk, Rockland) is a post-MVP milestone that will require evaluating each county's record access model separately.
-  </div>
-  <div class="flag">
-    <strong>Pricing model TBD</strong>
-    Per-report flat fee is the working assumption. Subscription or credit-pack models remain on the table pending cost analysis (Phase 4).
-  </div>
-
-  <div class="card" style="margin-top:28px">
-    <h3>Success metrics — MVP</h3>
-    <ul class="item-list">
-      <li>Report successfully generated for ≥ 90% of valid Westchester addresses</li>
-      <li>End-to-end report time under 3 minutes</li>
-      <li>Deed extraction accuracy ≥ 95% on grantor/grantee/date fields</li>
-      <li>Cost per report (API + compute) under $2.00</li>
+    <ul class="checklist">
+      <li>Product vision, target market &amp; positioning</li>
+      <li>Report contents — data categories &amp; public data sources</li>
+      <li>MVP site map (homepage, preview modal, Stripe checkout, confirmation &amp; failure states, transactional emails, report detail, admin dashboard)</li>
+      <li>Key product decisions, edge cases &amp; open questions log</li>
     </ul>
   </div>
 
@@ -243,6 +374,5 @@ footer {
     Mitimiti Estudio LLC · June 2026
   </footer>
 </div>
-
 </body>
 </html>
