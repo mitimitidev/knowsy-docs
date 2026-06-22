@@ -43,7 +43,7 @@ nav { background: var(--color-background-primary); border-bottom: 0.5px solid va
 header.hero { background: #111110; color: #fff; padding: 44px 0 40px; }
 .eyebrow { text-transform: uppercase; letter-spacing: .1em; font-size: 10px; font-weight: 500; opacity: .5; margin: 0 0 8px; }
 header.hero h1 { margin: 0 0 10px; font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.3px; }
-header.hero p { margin: 0; max-width: 580px; opacity: .7; font-size: 14px; line-height: 1.6; }
+header.hero p { margin: 0; max-width: 600px; opacity: .7; font-size: 14px; line-height: 1.6; }
 .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .chip { background: rgba(255,255,255,.08); border: 0.5px solid rgba(255,255,255,.16); padding: 4px 12px; border-radius: 999px; font-size: 12px; }
 .content { padding: 32px 0 64px; }
@@ -51,8 +51,9 @@ header.hero p { margin: 0; max-width: 580px; opacity: .7; font-size: 14px; line-
 .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 20px 22px; margin-bottom: 8px; }
 .card h3 { margin: 0 0 8px; font-size: 15px; font-weight: 500; }
 .card p { margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
-.card p + p { margin-top: 8px; }
+.card p + p { margin-top: 10px; }
 .card p strong, .card li strong { color: var(--color-text-primary); font-weight: 500; }
+.src { display: block; margin-top: 8px; font-size: 12.5px; font-style: italic; color: var(--color-text-tertiary); }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
 code { font-family: var(--font-mono); font-size: 12.5px; background: var(--color-background-tertiary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; padding: 1px 5px; color: var(--color-text-primary); }
 em { font-style: italic; }
@@ -60,45 +61,37 @@ em { font-style: italic; }
 .item-list li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
 .item-list li:last-child { border-bottom: none; }
 .item-list li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--color-text-tertiary); margin-top: 8px; }
-.pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.pill { font-size: 12px; padding: 4px 11px; border-radius: 999px; background: var(--color-background-tertiary); color: #3a3730; border: 0.5px solid #c9c4b8; }
-@media (prefers-color-scheme: dark) { .pill { color: #d8d2c4; background: #2c2c2a; border-color: rgba(255,255,255,.14); } }
-/* sitemap flow */
-.flow { margin-bottom: 8px; }
-.screen { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 14px 18px; }
-.screen-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-.screen-head h4 { margin: 0; font-size: 14px; font-weight: 500; }
-.screen-head .route { font-family: var(--font-mono); font-size: 11.5px; color: var(--color-text-tertiary); }
-.screen p { margin: 4px 0 0; font-size: 13px; color: var(--color-text-secondary); }
-.screen-row { display: flex; gap: 8px; align-items: stretch; }
-.screen-row .screen { flex: 1; }
-.branch { border-style: dashed !important; }
-.branch .tag-async { display: inline-block; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: #854F0B; background: #FAEEDA; border: 0.5px solid #FAC775; border-radius: 999px; padding: 1px 7px; margin-left: 4px; vertical-align: middle; }
-@media (prefers-color-scheme: dark) { .branch .tag-async { color: #EF9F27; background: #412402; border-color: #633806; } }
-.arrow-v { text-align: center; color: var(--color-text-tertiary); font-size: 15px; padding: 6px 0; }
-.legend { font-size: 12px; color: var(--color-text-tertiary); margin-top: 12px; font-style: italic; }
-/* annotation callouts */
-.callout { border-radius: var(--border-radius-md); padding: 16px 18px; margin-bottom: 8px; font-size: 13.5px; line-height: 1.6; }
-.callout h4 { margin: 0 0 8px; font-size: 13px; font-weight: 600; }
-.callout.key { background: #FAEEDA; color: #6b4a12; border: 0.5px solid #FAC775; }
-.callout.edge { background: #E6F1FB; color: #1a3a5c; border: 0.5px solid #B5D4F4; }
-.callout.doubt { background: #FBE6E2; color: #7a2e22; border: 0.5px solid #F4B5AA; }
-.callout ul { margin: 0; padding-left: 18px; }
-.callout li { margin: 6px 0; }
-.callout .num { font-weight: 600; }
-@media (prefers-color-scheme: dark) {
-  .callout.key { background: #2e2410; color: #f0c884; border-color: #5c4716; }
-  .callout.edge { background: #11243a; color: #aecdf0; border-color: #1d3a5c; }
-  .callout.doubt { background: #3a1813; color: #f0b0a4; border-color: #5c2a22; }
-}
-.checklist { list-style: none; margin: 4px 0 0; padding: 0; }
-.checklist li { font-size: 14px; color: var(--color-text-secondary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; align-items: center; line-height: 1.5; }
-.checklist li:last-child { border-bottom: none; }
-.checklist li::before { content: "✓"; color: var(--color-text-primary); font-weight: 500; font-size: 13px; flex-shrink: 0; }
+.num-list { list-style: none; margin: 0; padding: 0; counter-reset: d; }
+.num-list li { font-size: 14px; color: var(--color-text-secondary); padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 12px; line-height: 1.6; }
+.num-list li:last-child { border-bottom: none; }
+.num-list li::before { counter-increment: d; content: counter(d); flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--color-background-tertiary); border: 0.5px solid #c9c4b8; color: #3a3730; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; }
+@media (prefers-color-scheme: dark) { .num-list li::before { color: #d8d2c4; border-color: rgba(255,255,255,.14); } }
+.io-list { list-style: none; margin: 0; padding: 0; }
+.io-list li { font-size: 14px; color: var(--color-text-secondary); padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 9px; align-items: flex-start; line-height: 1.55; }
+.io-list li:last-child { border-bottom: none; }
+.io-list.in li::before { content: "\2713"; color: #0F6E56; font-weight: 600; flex-shrink: 0; }
+.io-list.out li::before { content: "\00d7"; color: #9c5042; font-weight: 600; flex-shrink: 0; font-size: 16px; line-height: 1.4; }
+@media (prefers-color-scheme: dark) { .io-list.in li::before { color: #5DCAA5; } .io-list.out li::before { color: #e8a99c; } }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-tertiary); padding: 0 14px 8px 0; border-bottom: 0.5px solid var(--color-border-secondary); white-space: nowrap; }
+td { padding: 10px 14px 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); vertical-align: top; line-height: 1.5; }
+tr:last-child td { border-bottom: none; }
+td:first-child { color: var(--color-text-primary); font-weight: 500; }
+.highlight { background: var(--color-text-primary); color: var(--color-background-primary); border-radius: var(--border-radius-md); padding: 22px 24px; margin-bottom: 8px; }
+.highlight .q { font-size: 20px; font-weight: 500; letter-spacing: -.2px; margin: 0 0 10px; }
+.highlight p { margin: 0; font-size: 13.5px; opacity: .7; line-height: 1.6; }
+.callout { border-radius: var(--border-radius-md); padding: 14px 18px; margin-bottom: 8px; font-size: 13.5px; line-height: 1.6; display: flex; gap: 10px; }
+.callout.warn { background: #FAEEDA; color: #6b4a12; border: 0.5px solid #FAC775; }
+.callout.warn i { color: #854F0B; flex-shrink: 0; margin-top: 1px; }
+@media (prefers-color-scheme: dark) { .callout.warn { background: #2e2410; color: #f0c884; border-color: #5c4716; } .callout.warn i { color: #EF9F27; } }
+.tag-p2 { display: inline-block; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: #3a3730; background: var(--color-background-tertiary); border: 0.5px solid #c9c4b8; border-radius: 999px; padding: 1px 8px; margin-left: 6px; vertical-align: middle; }
+@media (prefers-color-scheme: dark) { .tag-p2 { color: #d8d2c4; background: #2c2c2a; border-color: rgba(255,255,255,.14); } }
 .spacer { margin-top: 28px; }
-footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); }
+footer { text-align: center; color: var(--color-text-tertiary); font-size: 12px; padding: 24px 0 48px; border-top: 0.5px solid var(--color-border-tertiary); line-height: 1.6; }
 footer strong { color: var(--color-text-secondary); font-weight: 500; }
-@media (max-width: 620px) { .two-col, .screen-row { grid-template-columns: 1fr; flex-direction: column; } }
+footer .note { display: block; max-width: 520px; margin: 0 auto 14px; font-style: italic; }
+@media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -115,244 +108,261 @@ footer strong { color: var(--color-text-secondary); font-weight: 500; }
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Phase 1 · Week 1</p>
+    <p class="eyebrow">Knowsy · Product Definition</p>
     <h1>Product Definition</h1>
-    <p>The product vision, target market, what a Knowsy report contains, the MVP site map, and the key product decisions, edge cases, and open questions surfaced during stakeholder alignment.</p>
+    <p>Carfax for real estate — a single, structured report that surfaces everything a buyer needs to know about a home before they make an offer.</p>
     <div class="meta-row">
-      <span class="chip">Stakeholder &amp; product alignment</span>
-      <span class="chip">$40 / report</span>
-      <span class="chip">MVP target: end of May</span>
+      <span class="chip">Status: Discovery</span>
+      <span class="chip">Version 1.0</span>
+      <span class="chip">June 2026</span>
+      <span class="chip">Owner: Mitimiti Estudio</span>
     </div>
   </div>
 </header>
 
 <div class="wrap content">
 
-  <!-- VISION -->
+  <!-- 1 -->
+  <p class="section-label">What is Knowsy?</p>
+  <div class="card">
+    <p>Knowsy is a consumer-facing property research platform that generates comprehensive, AI-powered reports about any residential property before a buyer makes an offer. Think <strong>Carfax for real estate</strong> — a single, structured report that surfaces everything a buyer needs to know about a home: its ownership history, deed chain, tax record, neighborhood data, and potential red flags.</p>
+    <p>The core insight: homebuyers make the largest financial decision of their lives with surprisingly little structured information. Existing platforms like Zillow and Redfin focus on <em>finding</em> a home. Knowsy focuses on <em>understanding</em> one.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="spacer"></div>
+  <p class="section-label">Problem statement</p>
+  <div class="card">
+    <p>Today's homebuyer — particularly millennials and zillennials — faces a fragmented research process:</p>
+    <ul class="item-list" style="margin-top:10px">
+      <li>Property history is scattered across county clerk websites, tax portals, and title companies</li>
+      <li>Historical deed documents (some dating back to 1913) are scanned PDFs with no semantic search</li>
+      <li>Potential red flags (shared driveways, utility easements, estate ownership complications) are only discovered at closing — too late</li>
+      <li>Neighborhood intelligence (school ratings, noise levels, walkability, HOA info, town meeting minutes) lives across dozens of separate sources</li>
+      <li>Professional title searches are expensive and happen post-offer, not pre-offer</li>
+    </ul>
+    <p style="margin-top:12px"><strong>The gap:</strong> there is no consumer product that aggregates, interprets, and presents this data in an accessible, modern format <em>before</em> a buyer decides to make an offer.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="spacer"></div>
   <p class="section-label">Product vision</p>
+  <div class="highlight">
+    <p class="q">"Know before you offer."</p>
+    <p>Knowsy is the research layer of the home buying journey. It doesn't replace real estate agents or title companies — it empowers buyers to enter conversations and negotiations with full context.</p>
+  </div>
   <div class="card">
-    <h3>Knowsy — "Carfax for homes"</h3>
-    <p>Knowsy is a home-buying research platform that aggregates public data to create comprehensive property reports for homebuyers. The concept is similar to Carfax for homes — providing detailed information <strong>before making an offer, not after closing</strong>.</p>
-    <p>The platform aims to be the single source for all neighborhood and property information, eliminating the need to leave the platform.</p>
+    <p><strong>Long-term vision:</strong> become the default pre-offer research tool for residential real estate in the US, starting with high-volume, data-accessible counties and expanding nationwide.</p>
   </div>
 
+  <!-- 4 -->
+  <div class="spacer"></div>
+  <p class="section-label">Target users</p>
   <div class="two-col">
     <div class="card">
-      <h3>Target market</h3>
-      <p>Millennial / zillennial homebuyers who want a modern, engaging UI rather than sterile, investor-focused reports.</p>
+      <h3>Primary — The Prepared Buyer</h3>
+      <ul class="item-list">
+        <li>Millennial / zillennial first or second-time homebuyer</li>
+        <li>Digitally native, used to paying for SaaS tools that save time</li>
+        <li>Makes decisions with data, not gut feel</li>
+        <li>Frustrated by the opacity of the home buying process</li>
+        <li>Willing to pay $40 for confidence before making a $400,000+ decision</li>
+      </ul>
     </div>
     <div class="card">
-      <h3>Differentiation</h3>
-      <p>Consumer-focused design and a storytelling approach to data presentation — not a spreadsheet of metrics.</p>
+      <h3>Secondary — The Real Estate Agent <span class="tag-p2">Phase 2</span></h3>
+      <ul class="item-list">
+        <li>Buyer's agent who wants to add value to clients</li>
+        <li>Listing agent who wants to pre-empt due diligence objections</li>
+        <li>Could unlock B2B pricing model</li>
+      </ul>
     </div>
   </div>
 
-  <div class="two-col">
-    <div class="card">
-      <h3>Pricing</h3>
-      <p><strong>$40 per report.</strong> Stripe collects the email at checkout — no separate sign-up form needed.</p>
-    </div>
-    <div class="card">
-      <h3>Positioning</h3>
-      <p>Not competing with property-search platforms like Zillow — this is a <strong>post-selection verification tool</strong>, used once a buyer has a property in mind.</p>
-    </div>
-  </div>
-
-  <!-- WHAT'S IN A REPORT -->
+  <!-- 5 -->
   <div class="spacer"></div>
-  <p class="section-label">What a report contains</p>
+  <p class="section-label">Business model</p>
   <div class="card">
-    <h3>Data categories</h3>
-    <div class="pill-row">
-      <span class="pill">Property summary</span>
-      <span class="pill">Transactional data</span>
-      <span class="pill">Owner history</span>
-      <span class="pill">Town information</span>
-      <span class="pill">Historical documents</span>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Pricing</td><td>$40 per report (pay-per-use)</td></tr>
+          <tr><td>Distribution</td><td>Direct-to-consumer (web)</td></tr>
+          <tr><td>MVP Geography</td><td>Westchester County, NY</td></tr>
+          <tr><td>Phase 2 expansion</td><td>NYC boroughs, Bergen County NJ, Maricopa AZ, Florida counties</td></tr>
+          <tr><td>Phase 3</td><td>Full US coverage via data provider APIs</td></tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-  <div class="card">
-    <h3>Public data sources</h3>
-    <div class="pill-row">
-      <span class="pill">Tax history</span>
-      <span class="pill">School ratings</span>
-      <span class="pill">Walkability scores</span>
-      <span class="pill">Water quality (EPA)</span>
-      <span class="pill">HOA documents</span>
-      <span class="pill">Demographic data</span>
-      <span class="pill">Political orientation</span>
-      <span class="pill">Flood zones (FEMA)</span>
-      <span class="pill">Social sentiment (Reddit)</span>
-      <span class="pill">Top / worst restaurants &amp; parks</span>
-      <span class="pill">Noise pollution (HowLoud)</span>
-      <span class="pill">Town meeting minutes</span>
-    </div>
-  </div>
-  <div class="card">
-    <h3>Historical deed documents</h3>
-    <p>Historical deed documents dating back to <strong>1913</strong> are scanned using AI to identify potential issues like shared driveways, utility easements, or estate ownership that could complicate closing. County assessment rolls provide neighbor information — for example, the Westchester County assessment roll is 64,000 pages.</p>
+    <p style="margin-top:14px"><strong>Unit economics target:</strong> Achieve 100 report sales/month in Westchester to validate model before expanding.</p>
   </div>
 
-  <!-- SITE MAP -->
+  <!-- 6 -->
   <div class="spacer"></div>
-  <p class="section-label">MVP site map</p>
+  <p class="section-label">Report structure (MVP)</p>
+  <div class="card"><p>Each Knowsy report covers six sections:</p></div>
   <div class="card">
-    <p>The product experience is intentionally simple: a search input for an address, then a comprehensive report. The MVP is divided into the screens below.</p>
+    <h3>6.1 · Property Overview</h3>
+    <p>Address, current assessed value, square footage, lot size, zoning, current owner, year built, last sale price and date.</p>
+    <span class="src">Sources: Regrid (parcel data), county tax records, RealtyAPI</span>
+  </div>
+  <div class="card">
+    <h3>6.2 · Deed &amp; Ownership History</h3>
+    <p>Complete deed chain from current owner back to earliest available record. AI-extracted data from scanned documents including grantor/grantee, document type, liber/page references, recording date, and any encumbrances, easements, or restrictions noted.</p>
+    <span class="src">Sources: Westchester County Clerk (WRO), OCR + vision model pipeline, Inngest workflow</span>
+  </div>
+  <div class="callout warn"><i class="ti ti-alert-triangle-filled"></i><div><strong>This is the hardest and most defensible section.</strong> Competitor tools do not do this.</div></div>
+  <div class="card">
+    <h3>6.3 · Tax &amp; Financial History</h3>
+    <p>Annual assessed value history, tax amount history, mill rate, any delinquencies or tax liens.</p>
+    <span class="src">Sources: County tax records, Regrid</span>
+  </div>
+  <div class="card">
+    <h3>6.4 · Neighborhood &amp; Town Intelligence</h3>
+    <p>School district ratings, walkability score, flood zone (FEMA NFHL), noise pollution score (HowLoud), HOA presence and documents, town meeting minutes referencing the property or area.</p>
+    <span class="src">Sources: HowLoud API, Walk Score, FEMA NFHL, county meeting minutes scraping</span>
+  </div>
+  <div class="card">
+    <h3>6.5 · Social Sentiment <span class="tag-p2">Phase 2</span></h3>
+    <p>Reddit and Nextdoor mentions of the neighborhood or street. Aggregated sentiment score with representative quotes.</p>
+    <span class="src">Sources: GDELT, Reddit API, Nextdoor (TBD)</span>
+  </div>
+  <div class="card">
+    <h3>6.6 · Quality of Life Snapshot <span class="tag-p2">Phase 2</span></h3>
+    <p>Top-rated restaurants, parks, and amenities within 1 mile. Aggregated from public review data.</p>
+    <span class="src">Sources: Google Places API or similar</span>
   </div>
 
-  <div class="flow">
-    <div class="screen">
-      <div class="screen-head"><h4>Homepage</h4><span class="route">Marketing site</span></div>
-      <p>Hero · Address search + CTA to generate a report. Focuses on examples of discoveries and what users might uncover to drive engagement. Footer links: Privacy Policy · Terms &amp; Condition.</p>
+  <!-- 7 -->
+  <div class="spacer"></div>
+  <p class="section-label">Technical architecture (summary)</p>
+  <div class="card">
+    <p>Knowsy is built on a Next.js / TypeScript stack deployed on Vercel, with the following key layers:</p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+        <tbody>
+          <tr><td>Frontend</td><td>Next.js 14 (RSC + Route Handlers)</td></tr>
+          <tr><td>Database</td><td>Neon (serverless Postgres) + JSONB caching for vendor payloads</td></tr>
+          <tr><td>Workflow orchestration</td><td>Inngest (durable, retryable workflows)</td></tr>
+          <tr><td>File storage</td><td>Vercel Blob (deed PDFs, scanned docs)</td></tr>
+          <tr><td>OCR / AI extraction</td><td>Vision model pipeline (deed chain extraction)</td></tr>
+          <tr><td>Parcel data</td><td>Regrid API (authoritative county records)</td></tr>
+          <tr><td>Listing data</td><td>RealtyAPI</td></tr>
+          <tr><td>Deed documents</td><td>Westchester County Clerk (WRO) — subscription $1,200/yr</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="arrow-v">↓</div>
-
-    <div class="screen-row">
-      <div class="screen">
-        <div class="screen-head"><h4>Preview Modal</h4></div>
-        <p>What you'll get + Pricing + CTA to pay.</p>
-      </div>
-      <div class="screen branch" style="flex:0 0 38%">
-        <div class="screen-head"><h4>Address not found</h4><span class="tag-async">branch</span></div>
-        <p>Try another address.</p>
-      </div>
-    </div>
-    <div class="arrow-v">↓</div>
-
-    <div class="screen-row">
-      <div class="screen">
-        <div class="screen-head"><h4>Stripe Checkout</h4></div>
-        <p>Hosted checkout · Email collection.</p>
-      </div>
-      <div class="screen branch" style="flex:0 0 38%">
-        <div class="screen-head"><h4>Payment Failed</h4><span class="tag-async">branch</span></div>
-        <p>Try again.</p>
-      </div>
-    </div>
-    <div class="arrow-v">↓</div>
-
-    <div class="screen">
-      <div class="screen-head"><h4>Order Confirmation</h4></div>
-      <p>Report generating… The confirmation page can poll for readiness or just say "check your email".</p>
-    </div>
-    <div class="arrow-v">↓</div>
-
-    <div class="screen">
-      <div class="screen-head"><h4>Report Generation</h4></div>
-      <p>Report generating… (async pipeline).</p>
-    </div>
-    <div class="arrow-v">↓</div>
-
-    <div class="screen-row">
-      <div class="screen">
-        <div class="screen-head"><h4>Email — Report Ready</h4><span class="tag-async">transactional</span></div>
-        <p>Link to report page.</p>
-      </div>
-      <div class="screen branch" style="flex:0 0 38%">
-        <div class="screen-head"><h4>Generation Failed</h4><span class="tag-async">branch</span></div>
-        <p>Email fallback · Refund or contact us.</p>
-      </div>
-    </div>
-    <div class="arrow-v">↓</div>
-
-    <div class="screen-row">
-      <div class="screen branch">
-        <div class="screen-head"><h4>Link Expired</h4><span class="tag-async">after 1 day</span></div>
-        <p>Regenerate link.</p>
-      </div>
-      <div class="screen branch">
-        <div class="screen-head"><h4>New Link Sent</h4></div>
-        <p>Link sent via email.</p>
-      </div>
-    </div>
-    <div class="arrow-v">↓</div>
-
-    <div class="screen">
-      <div class="screen-head"><h4>Report Detail</h4><span class="route">Unique URL via email</span></div>
-      <p>The report page lives at a unique, unguessable URL — no login required to view.</p>
-    </div>
-
-    <p class="legend">Solid lines = happy path · Dashed lines = async or error branch.</p>
+    <p style="margin-top:14px"><strong>Two generation modes under evaluation:</strong></p>
+    <ul class="item-list" style="margin-top:8px">
+      <li><strong>Pre-scraped:</strong> Knowsy crawls all active MLS listings nightly → reports ready instantly</li>
+      <li><strong>On-demand:</strong> Report generated at request time → 10–15 min generation window</li>
+    </ul>
+    <p style="margin-top:12px">MVP will likely use on-demand with a queued async model and email notification on completion.</p>
   </div>
 
-  <!-- ADMIN -->
+  <!-- 8 -->
+  <div class="spacer"></div>
+  <p class="section-label">Key differentiators</p>
   <div class="card">
-    <div class="screen-head" style="margin-bottom:8px"><h3 style="margin:0">Admin Dashboard</h3><span class="route">/admin</span></div>
-    <ul class="item-list">
-      <li>Address of report</li>
-      <li>Email of user that generated the report</li>
-      <li>Payment confirmation &amp; link</li>
-      <li>Basic telemetrics / how long did it take</li>
-      <li>Was the report viewed or not?</li>
+    <ul class="num-list">
+      <li><strong>Deed chain AI extraction</strong> — No competitor automates the reading of historical deed documents. This is the hardest data problem in property research and Knowsy's primary moat.</li>
+      <li><strong>Consumer-first design</strong> — Competitors (DataTree, PropertyShark, title plants) are built for professionals. Knowsy is built for a buyer who has never read a deed.</li>
+      <li><strong>Pre-offer timing</strong> — Unlike title insurance (which runs post-offer), Knowsy gives buyers leverage <em>before</em> they commit.</li>
+      <li><strong>Single source of truth</strong> — One URL, one report, everything a buyer needs. No tab-switching.</li>
     </ul>
   </div>
 
-  <!-- KEY DECISIONS -->
+  <!-- 9 -->
   <div class="spacer"></div>
-  <p class="section-label">Key product decisions</p>
-  <div class="callout key">
-    <ul>
-      <li>Report page lives at a unique, unguessable URL (no login required to view).</li>
-      <li>Stripe collects email at checkout — no separate sign-up form needed.</li>
-      <li>Confirmation page can poll for readiness or just say "check your email".</li>
-    </ul>
-  </div>
-
-  <!-- EDGE CASES -->
-  <div class="spacer"></div>
-  <p class="section-label">Edge cases to resolve</p>
-  <div class="callout edge">
-    <p><span class="num">Edge case 1 — same address searched again.</span> Do they pay again and get a fresh report, get the cached one for free, or get a discounted re-run? This affects both the UX (do you show "report already exists" before checkout?) and the pipeline (do you cache reports or always regenerate?).</p>
-    <p style="margin-top:10px"><span class="num">Edge case 2 — wrong address, already paid.</span> There's no refund or correction flow anywhere in the sitemap. This needs either a grace period on the confirmation page ("wrong address? fix it before we generate") or a support contact path. Without it, this becomes a customer-service problem on day one.</p>
-    <p style="margin-top:10px"><span class="num">Edge case 3 — similar but different addresses</span> (e.g. 12 vs 21 Elm St). The address search on the home page needs a confirmation step — show the matched address and ask "is this the right property?" before the modal triggers. This is a UX pattern, not just an error state.</p>
-  </div>
-
-  <!-- MARKET SCOPE + TIMELINE -->
-  <div class="spacer"></div>
-  <p class="section-label">Market scope &amp; timeline</p>
-  <div class="card">
-    <h3>Initial geographic focus</h3>
-    <p>Counties with high sales volume and accessible public data:</p>
-    <div class="pill-row">
-      <span class="pill">Westchester County</span>
-      <span class="pill">NYC</span>
-      <span class="pill">Bergen County</span>
-      <span class="pill">Maricopa (AZ)</span>
-      <span class="pill">Texas counties</span>
-      <span class="pill">Florida</span>
-      <span class="pill">Las Vegas</span>
-      <span class="pill">Orange County</span>
-      <span class="pill">Seattle / Kings County</span>
-    </div>
-    <p style="margin-top:10px">Data accessibility varies by county — some require subscriptions (Westchester is $1,200/year), while others have free public access.</p>
-  </div>
+  <p class="section-label">MVP scope</p>
   <div class="two-col">
     <div class="card">
-      <h3>Timeline</h3>
-      <p>Revised MVP target: <strong>end of May</strong> (original end-of-April target no longer feasible). Budget is limited — the goal is to identify the true MVP scope to make the project financially viable, and to test market fit before investing heavily.</p>
+      <h3>In scope</h3>
+      <ul class="io-list in">
+        <li>Address search input → report generation flow</li>
+        <li>Property overview (parcel + tax data via Regrid)</li>
+        <li>Deed chain extraction (Westchester County Clerk, AI pipeline)</li>
+        <li>Social sentiment (Reddit/Nextdoor)</li>
+        <li>Environmental section (flood zone + noise score)</li>
+        <li>Quality of life section (restaurants, parks)</li>
+        <li>Report display UI (web, desktop-first)</li>
+        <li>Stripe payment ($40/report)</li>
+        <li>Email delivery of report PDF</li>
+        <li>Westchester County, NY only</li>
+      </ul>
     </div>
     <div class="card">
-      <h3>Potential pivot</h3>
-      <p>If consumer adoption is slow, Knowsy could target <strong>real estate agents</strong> who need reports for their listings.</p>
+      <h3>Out of scope (MVP)</h3>
+      <ul class="io-list out">
+        <li>Agent-facing product or B2B pricing</li>
+        <li>Mobile app</li>
+        <li>User accounts / report history</li>
+        <li>Multi-county coverage</li>
+        <li>Pre-scraped report inventory</li>
+      </ul>
     </div>
   </div>
 
-  <!-- DELIVERABLES -->
+  <!-- 11 -->
   <div class="spacer"></div>
-  <p class="section-label">Deliverables</p>
+  <p class="section-label">Phases &amp; roadmap</p>
   <div class="card">
-    <ul class="checklist">
-      <li>Product vision, target market &amp; positioning</li>
-      <li>Report contents — data categories &amp; public data sources</li>
-      <li>MVP site map (homepage, preview modal, Stripe checkout, confirmation &amp; failure states, transactional emails, report detail, admin dashboard)</li>
-      <li>Key product decisions &amp; edge cases</li>
-    </ul>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Phase</th><th>Focus</th></tr></thead>
+        <tbody>
+          <tr><td>Phase 1 — Validation</td><td>MVP report for Westchester, manual QA, first 50 paying users</td></tr>
+          <tr><td>Phase 2 — Expansion</td><td>Add 3–5 new counties, agent pilot</td></tr>
+          <tr><td>Phase 3 — Scale</td><td>National coverage via DataTree/Atom, B2B tier, API access</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="spacer"></div>
+  <p class="section-label">Success metrics</p>
+  <div class="card">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>MVP Target</th><th>12-month Target</th></tr></thead>
+        <tbody>
+          <tr><td>Reports sold</td><td>100</td><td>2,000</td></tr>
+          <tr><td>Revenue</td><td>$4,000</td><td>$80,000</td></tr>
+          <tr><td>Repeat purchase rate</td><td>—</td><td>&gt;25%</td></tr>
+          <tr><td>Report generation time</td><td>&lt;15 min</td><td>&lt;3 min</td></tr>
+          <tr><td>Deed extraction accuracy</td><td>&gt;85%</td><td>&gt;95%</td></tr>
+          <tr><td>NPS</td><td>—</td><td>&gt;50</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="spacer"></div>
+  <p class="section-label">Risks &amp; mitigations</p>
+  <div class="card">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          <tr><td>County clerk access blocked / rate-limited</td><td>Medium</td><td>High</td><td>Use title plant APIs as fallback (DataTree, Atom)</td></tr>
+          <tr><td>OCR quality too low for accurate deed extraction</td><td>Low</td><td>High</td><td>Human review queue for low-confidence results</td></tr>
+          <tr><td>Consumer willingness to pay $40 unvalidated</td><td>Medium</td><td>High</td><td>Offer 1 free report on launch to validate conversion</td></tr>
+          <tr><td>Data licensing restrictions on resale</td><td>Low</td><td>High</td><td>Legal review before launch</td></tr>
+          <tr><td>Slow consumer adoption</td><td>Medium</td><td>Medium</td><td>Pivot to agent-facing product as B2B fallback</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </div>
 
 <div class="wrap">
   <footer>
+    <span class="note">This document is a living definition. It should be updated as open questions are resolved and scope decisions are made. Treat it as the source of truth for what Knowsy is and why.</span>
     <strong>Knowsy · Discovery Phase · Phase 1</strong><br>
     Mitimiti Estudio LLC · June 2026
   </footer>
